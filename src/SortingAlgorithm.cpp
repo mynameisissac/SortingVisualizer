@@ -8,3 +8,5 @@
 SortingAlgorithm::SortingAlgorithm(int* arrayToSort, int size)
     : arrayToSort(arrayToSort), size(size)              // perform shallow copy of the array pointer
 {}
+
+SortingAlgorithm::~SortingAlgorithm() = default;

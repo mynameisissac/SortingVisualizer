@@ -9,6 +9,13 @@ BogoSort::BogoSort(int* arr, int size)
     : SortingAlgorithm(arr, size) {}
 
 
+// static member function
+void BogoSort::shuffleArray(int* arr, int size)
+{
+
+}
+
+
 void BogoSort::sortOneIteration()
 {
 

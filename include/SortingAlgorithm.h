@@ -13,6 +13,7 @@ class SortingAlgorithm {
 
     public:
         SortingAlgorithm(int* arrayToSort, int size);     // constructor
+        virtual ~SortingAlgorithm();        // destructor
 
         // pure virtual overloaded operator() for performing the sorting of one iteration
         virtual void sortOneIteration() = 0;

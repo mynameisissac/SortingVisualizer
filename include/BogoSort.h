@@ -11,7 +11,12 @@ class BogoSort : public SortingAlgorithm{
 
     public:
         BogoSort(int* arr, int size);
+
+        // this shuffleArray function can be reused by class members and others classes
+        static void shuffleArray(int* arr, int size);
+
         void sortOneIteration() override;
+
 };
 
 

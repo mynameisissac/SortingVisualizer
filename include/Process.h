@@ -5,6 +5,8 @@
 #ifndef SORTINGVISUALIZER_PROCESS_H
 #define SORTINGVISUALIZER_PROCESS_H
 #include <SFML/Graphics.hpp>
+#include "SortingAlgorithm.h"
+#include "BogoSort.h"
 
 // the flow of the whole program as an object
 class Process {
@@ -13,16 +15,19 @@ class Process {
         sf::RenderWindow window;
         sf::Vector2i resolution;
 
-        // a dynamic allocated array for demonstrating sorting
+        // the array to be sorted
+        int size;
         int* arrayToSort;
-        int size;           // size of the dynamic array
+
+        // owns a sorting algorithm for performing sorting
+        SortingAlgorithm* sortProcess;
 
     public:
-        Process(int sizeOfArray);      // conversion constructor
-        ~Process();     // destructor
+        explicit Process(int sizeOfArray);      // conversion constructor
+        ~Process();
 
         void handleInput();
-        void draw();
+        void draw(int* arrayToDraw, int sizeOfArr);
 
         // the main loop of the program
         void run();
