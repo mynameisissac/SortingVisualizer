@@ -1,7 +1,9 @@
-#include <iostream>
+#include "Process.h"
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    Process process;
+    process.run();      // the program will finish when run() finish
+
     return 0;
 }
