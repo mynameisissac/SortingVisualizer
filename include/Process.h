@@ -19,6 +19,9 @@ class Process {
         int size;
         int* arrayToSort;
 
+        // array of rectangles to represent the array
+        sf::RectangleShape* rectArray;
+
         // owns a sorting algorithm for performing sorting
         SortingAlgorithm* sortProcess;
 
@@ -27,7 +30,7 @@ class Process {
         ~Process();
 
         void handleInput();
-        void draw(int* arrayToDraw, int sizeOfArr);
+        void draw(int* arrayToDraw, sf::RectangleShape* rectArr, int sizeOfArr);
 
         // the main loop of the program
         void run();

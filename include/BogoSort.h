@@ -7,7 +7,6 @@
 #include "SortingAlgorithm.h"
 
 
-// function object class
 class BogoSort : public SortingAlgorithm{
 
     public:

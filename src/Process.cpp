@@ -8,15 +8,25 @@ using namespace sf;
 
 const int WINDOW_WIDTH = 512;
 const int WINDOW_HEIGHT = 512;
-const int SCALE = 5;
+const int HEIGHT_SCALE = 10;
 
 // initializing the new array by shuffling it
-void initializeArray(int* arr, int size)
+void initializeArrays(int* arr, RectangleShape* rectArr, int size)
 {
+    float rectangle_width = WINDOW_WIDTH / float(size);
+
     // initialize the array by ascending order
-    for (int i=0; i < size; ++i)
-        // SCALE means to enlarge the number
-        arr[i] = (i + 1) * SCALE;         // start from 1, prevent zero
+    for (int i=0; i < size; ++i) {
+        // HEIGHT_SCALE means to enlarge the number
+        // arr[i] indicates the height of rectArr[i]
+        arr[i] = (i + 1) * HEIGHT_SCALE;         // start from 1, prevent zero
+
+        rectArr[i].setSize(Vector2f(rectangle_width, (float)arr[i]));
+        rectArr[i].setFillColor(Color::Black);
+        // set the origin of all rectangles to their left-bottom corner for drawing easier
+        rectArr[i].setOrigin(0, rectArr[i].getSize().y);
+        rectArr[i].setPosition(float(i) * rectArr[i].getSize().x, WINDOW_HEIGHT);
+    }
 
     BogoSort::shuffleArray(arr, size);
 }
@@ -39,7 +49,8 @@ Process::Process(int sizeOfArray)
 
     // create a sorting algorithm instance
     arrayToSort = new int[size];        // create the dynamic array
-    initializeArray(arrayToSort, size);
+    rectArray = new RectangleShape[size];
+    initializeArrays(arrayToSort, rectArray, size);
 
     sortProcess = new BogoSort(arrayToSort, size);
 
@@ -50,23 +61,31 @@ Process::Process(int sizeOfArray)
 // the main game loop end until the window is closed
 void Process::run()
 {
+    int i = 0;
     // keep handling input and drawing while the Process is running
     while (window.isOpen()) {
         handleInput();
-        sortProcess->sortOneIteration();
-        draw(arrayToSort, size);        // draw the array out after each iteration of the sorting algorithm
+        sortProcess->sortOneIteration();        // TODO
+        draw(arrayToSort, rectArray, size);        // draw the array out after each iteration of the sorting algorithm
+        i++;
     }
 
 }
 
 // two-buffering drawing
-void Process::draw(int* arrayToDraw, int sizeOfArr)
+void Process::draw(int* arrayToDraw, RectangleShape* rectArr, int sizeOfArr)
 {
     // clear the screen before drawing
     window.clear(Color::White);
 
     // drawing the whole array by representing elements as rectangles
-
+    for (int i=0; i < sizeOfArr; ++i) {
+        // no change in width but only change in height
+        rectArr[i].setSize(Vector2f(rectArr[i].getSize().x, (float)arrayToDraw[i]));
+        rectArr[i].setOrigin(0, rectArr[i].getSize().y);
+        rectArr[i].setPosition(float(i) * rectArr[i].getSize().x, WINDOW_HEIGHT);
+        window.draw(rectArr[i]);
+    }
 
     window.display();       // swap the back buffer and front buffer
 }
@@ -74,5 +93,7 @@ void Process::draw(int* arrayToDraw, int sizeOfArr)
 Process::~Process()
 {
     delete [] arrayToSort;       // release dynamic allocated memory
+    delete [] rectArray;
     delete sortProcess;
+
 }

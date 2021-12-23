@@ -5,7 +5,7 @@
 #ifndef SORTINGVISUALIZER_SORTINGALGORITHM_H
 #define SORTINGVISUALIZER_SORTINGALGORITHM_H
 
-// abstract base class for all sorting function object class
+// abstract base class for all sorting algorithms
 class SortingAlgorithm {
     protected:
         int* arrayToSort;
