@@ -3,16 +3,30 @@
 //
 
 #include "Process.h"
+#include <iostream>
 using namespace sf;
 
 const int WINDOW_WIDTH = 512;
 const int WINDOW_HEIGHT = 512;
+const int SCALE = 5;
 
 // initializing the new array by shuffling it
 void initializeArray(int* arr, int size)
 {
+    // initialize the array by ascending order
+    for (int i=0; i < size; ++i)
+        // SCALE means to enlarge the number
+        arr[i] = (i + 1) * SCALE;         // start from 1, prevent zero
 
     BogoSort::shuffleArray(arr, size);
+}
+
+// print the array on console for checking
+void printArray(int* arr, int size)
+{
+    for (int i =0; i < size; ++i)
+        std::cout << arr[i] << ' ';
+    std::cout << std::endl;
 }
 
 // create a sorting visualization process by passing a size of array to sort
@@ -29,6 +43,7 @@ Process::Process(int sizeOfArray)
 
     sortProcess = new BogoSort(arrayToSort, size);
 
+    printArray(arrayToSort, size);
 }
 
 
@@ -38,8 +53,8 @@ void Process::run()
     // keep handling input and drawing while the Process is running
     while (window.isOpen()) {
         handleInput();
-
-        draw(arrayToSort, size);
+        sortProcess->sortOneIteration();
+        draw(arrayToSort, size);        // draw the array out after each iteration of the sorting algorithm
     }
 
 }
@@ -58,6 +73,6 @@ void Process::draw(int* arrayToDraw, int sizeOfArr)
 
 Process::~Process()
 {
-    delete arrayToSort;       // release dynamic allocated memory
+    delete [] arrayToSort;       // release dynamic allocated memory
     delete sortProcess;
 }

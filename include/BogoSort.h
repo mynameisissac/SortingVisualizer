@@ -6,6 +6,7 @@
 #define SORTINGVISUALIZER_BOGOSORT_H
 #include "SortingAlgorithm.h"
 
+
 // function object class
 class BogoSort : public SortingAlgorithm{
 
