@@ -8,13 +8,18 @@
 
 // the flow of the whole program as an object
 class Process {
-    private:
+    private:    // data members
         // window
         sf::RenderWindow window;
         sf::Vector2i resolution;
 
+        // a dynamic allocated array for demonstrating sorting
+        int* arrayToSort;
+        int size;           // size of the dynamic array
+
     public:
-        Process();      // default constructor
+        Process(int sizeOfArray);      // conversion constructor
+        ~Process();     // destructor
 
         void handleInput();
         void draw();

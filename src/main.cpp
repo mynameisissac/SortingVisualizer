@@ -2,7 +2,7 @@
 
 int main()
 {
-    Process process;
+    Process process(20);
     process.run();      // the program will finish when run() finish
 
     return 0;
