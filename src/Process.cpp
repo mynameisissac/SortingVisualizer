@@ -9,6 +9,10 @@ using namespace sf;
 const int WINDOW_WIDTH = 512;
 const int WINDOW_HEIGHT = 512;
 const int HEIGHT_SCALE = 10;
+const float DELAY_TIME = 0.1;       // unit: seconds
+
+// function declaration
+void printArray(int* arr, int size);
 
 // initializing the new array by shuffling it
 void initializeArrays(int* arr, RectangleShape* rectArr, int size)
@@ -39,9 +43,10 @@ void printArray(int* arr, int size)
     std::cout << std::endl;
 }
 
+
 // create a sorting visualization process by passing a size of array to sort
 Process::Process(int sizeOfArray)
-    : size(sizeOfArray)
+    : size(sizeOfArray), clock()
 {
     // window part i.e. UI
     resolution = Vector2i(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -61,13 +66,16 @@ Process::Process(int sizeOfArray)
 // the main game loop end until the window is closed
 void Process::run()
 {
-    int i = 0;
     // keep handling input and drawing while the Process is running
     while (window.isOpen()) {
         handleInput();
-        sortProcess->sortOneIteration();        // TODO
-        draw(arrayToSort, rectArray, size);        // draw the array out after each iteration of the sorting algorithm
-        i++;
+
+        float timeChange = clock.getElapsedTime().asSeconds();
+        if (timeChange >= DELAY_TIME){              // similar to time.sleep(DELAY_TIME)
+            sortProcess->sortOneIteration();        // TODO: add more sorting algorithms
+            draw(arrayToSort, rectArray, size);     // draw the array out after each iteration of the sorting algorithm
+            clock.restart();
+        }
     }
 
 }

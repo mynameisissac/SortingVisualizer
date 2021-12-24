@@ -5,7 +5,7 @@
 #include "BogoSort.h"
 #include <cstdlib>
 #include <ctime>
-
+#include "array-common.h"
 
 // constructor
 BogoSort::BogoSort(int* arr, int size)
@@ -34,9 +34,7 @@ void BogoSort::shuffleArray(int* arr, int size)
 
 void BogoSort::sortOneIteration()
 {
-    // function declaration
-    bool sorted(const int* arr, int size);
-
+    // TODO: optimize the shuffling portion
     // shuffle the array once if not sorted
     if (!sorted(arrayToSort, size))
         shuffleArray(arrayToSort, size);

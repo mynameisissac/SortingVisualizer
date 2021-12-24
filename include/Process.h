@@ -15,6 +15,9 @@ class Process {
         sf::RenderWindow window;
         sf::Vector2i resolution;
 
+        // clock
+        sf::Clock clock;      // for timing, delay
+
         // the array to be sorted
         int size;
         int* arrayToSort;
