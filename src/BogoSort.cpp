@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 
+
 // constructor
 BogoSort::BogoSort(int* arr, int size)
     : SortingAlgorithm(arr, size)
@@ -30,7 +31,13 @@ void BogoSort::shuffleArray(int* arr, int size)
 }
 
 
+
 void BogoSort::sortOneIteration()
 {
+    // function declaration
+    bool sorted(const int* arr, int size);
 
+    // shuffle the array once if not sorted
+    if (!sorted(arrayToSort, size))
+        shuffleArray(arrayToSort, size);
 }
