@@ -4,6 +4,7 @@
 
 #include "Engine.h"
 #include "UI_common.h"
+#include <ctime>
 #include <iostream>
 using namespace sf;
 
@@ -18,10 +19,13 @@ Engine::Engine(int sizeOfArray)
 
     // array to be sorted as an object
     arrayToSort.initialization();
+    /* initialize random seed: */
+    srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create a sorting algorithm instance
     sortProcess = new BogoSort(arrayToSort);
+
 
     arrayToSort.print();
 }

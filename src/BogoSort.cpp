@@ -4,16 +4,12 @@
 
 #include "BogoSort.h"
 #include <cstdlib>
-#include <ctime>
 #include "array-common.h"
 
 // constructor
 BogoSort::BogoSort(Array<int>& arrayToSort)
     : SortingAlgorithm(arrayToSort)
-{
-    /* initialize random seed: */
-    srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
-}
+{}
 
 
 // static member function
