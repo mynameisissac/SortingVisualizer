@@ -10,7 +10,7 @@
 class BogoSort : public SortingAlgorithm{
 
     public:
-        BogoSort(int* arr, int size);
+        explicit BogoSort(Array<int>& arrayToSort);
 
         // this shuffleArray function can be reused by class members and others classes
         static void shuffleArray(int* arr, int size);

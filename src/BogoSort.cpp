@@ -8,8 +8,8 @@
 #include "array-common.h"
 
 // constructor
-BogoSort::BogoSort(int* arr, int size)
-    : SortingAlgorithm(arr, size)
+BogoSort::BogoSort(Array<int>& arrayToSort)
+    : SortingAlgorithm(arrayToSort)
 {
     /* initialize random seed: */
     srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
@@ -36,6 +36,6 @@ void BogoSort::sortOneIteration()
 {
     // TODO: optimize the shuffling portion
     // shuffle the array once if not sorted
-    if (!sorted(arrayToSort, size))
-        shuffleArray(arrayToSort, size);
+    if (!arrayToSort.sorted())
+        shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());
 }

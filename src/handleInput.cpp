@@ -2,11 +2,11 @@
 // Created by kshou on 2021/12/23.
 //
 
-#include "Process.h"
+#include "Engine.h"
 #include <iostream>
 using namespace sf;
 
-void Process::handleInput()
+void Engine::handleInput()
 {
     Event event{};
 

@@ -5,14 +5,16 @@
 #ifndef SORTINGVISUALIZER_SORTINGALGORITHM_H
 #define SORTINGVISUALIZER_SORTINGALGORITHM_H
 
+#include "Array.h"
+
 // abstract base class for all sorting algorithms
 class SortingAlgorithm {
     protected:
-        int* arrayToSort;
-        int size;       // size of the array to be sorted
+        // a reference to the array object to be sorted
+        Array<int>& arrayToSort;
 
     public:
-        SortingAlgorithm(int* arrayToSort, int size);     // constructor
+        explicit SortingAlgorithm(Array<int>& arrayToSort);     // constructor
         virtual ~SortingAlgorithm();        // destructor
 
         // pure virtual overloaded operator() for performing the sorting of one iteration
