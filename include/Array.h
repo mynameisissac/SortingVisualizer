@@ -65,12 +65,14 @@ T* Array<T>::getArrayPointer() const
     return arr;
 }
 
+// accessor that return the pointer to the first element in the representation array
 template <typename T>
 RectangleShape* Array<T>::getRecArrPointer() const
 {
     return representation;
 }
 
+// predicate that check if the data array is sorted
 template <typename T>
 bool Array<T>::sorted() const
 {
