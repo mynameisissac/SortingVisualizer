@@ -41,7 +41,7 @@ void Engine::run()
         float timeChange = clock.getElapsedTime().asSeconds();
         if (timeChange >= DELAY_TIME){              // similar to time.sleep(DELAY_TIME)
             sortProcess->sortOneIteration();        // TODO: add more sorting algorithms
-            draw(arrayToSort.getArrayPointer(), arrayToSort.getRecArrPointer(), arrayToSort.getSize());     // draw the array out after each iteration of the sorting algorithm
+            draw(arrayToSort);     // draw the array out after each iteration of the sorting algorithm
             clock.restart();
         }
     }
@@ -49,19 +49,12 @@ void Engine::run()
 }
 
 // two-buffering drawing
-void Engine::draw(int* arrayToDraw, RectangleShape* rectArr, int sizeOfArr)
+void Engine::draw(Array<int>& arrayToDraw)
 {
     // clear the screen before drawing
     window.clear(Color::White);
 
-    // drawing the whole array by representing elements as rectangles
-    for (int i=0; i < sizeOfArr; ++i) {
-        // no change in width but only change in height
-        rectArr[i].setSize(Vector2f(rectArr[i].getSize().x, (float)arrayToDraw[i]));
-        rectArr[i].setOrigin(0, rectArr[i].getSize().y);
-        rectArr[i].setPosition(float(i) * rectArr[i].getSize().x, WINDOW_HEIGHT);
-        window.draw(rectArr[i]);
-    }
+    arrayToDraw.draw(window);
 
     window.display();       // swap the back buffer and front buffer
 }

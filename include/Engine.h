@@ -29,7 +29,7 @@ class Engine {
         ~Engine();
 
         void handleInput();
-        void draw(int* arrayToDraw, sf::RectangleShape* rectArr, int sizeOfArr);
+        void draw(Array<int>& arrayToDraw);
 
         // the main loop of the program
         void run();

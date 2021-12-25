@@ -7,6 +7,8 @@
 
 #include "Array.h"
 
+
+// TODO : change to template
 // abstract base class for all sorting algorithms
 class SortingAlgorithm {
     protected:

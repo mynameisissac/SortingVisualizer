@@ -32,7 +32,7 @@ class Array {
         void print() const;
 
         void initialization();
-        void draw();
+        void draw(RenderWindow& window);
 };
 
 template <typename T>
@@ -118,10 +118,18 @@ void Array<T>::initialization()
 
 }
 
-template <typename T>
-void Array<T>::draw()
-{
 
+template <typename T>
+void Array<T>::draw(RenderWindow& window)
+{
+    // drawing the whole array by representing elements as rectangles
+    for (int i=0; i < size; ++i) {
+        // no change in width but only change in height
+        representation[i].setSize(Vector2f(representation[i].getSize().x, (float)arr[i]));
+        representation[i].setOrigin(0, representation[i].getSize().y);
+        representation[i].setPosition(float(i) * representation[i].getSize().x, WINDOW_HEIGHT);
+        window.draw(representation[i]);
+    }
 }
 
 #endif //SORTINGVISUALIZER_ARRAY_H
