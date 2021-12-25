@@ -4,7 +4,6 @@
 
 #include "BogoSort.h"
 #include <cstdlib>
-#include "array-common.h"
 
 // constructor
 BogoSort::BogoSort(Array<int>& arrayToSort)

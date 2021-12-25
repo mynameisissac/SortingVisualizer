@@ -3,7 +3,7 @@ project(SortingVisualizer)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SortingVisualizer src/main.cpp src/Engine.cpp include/Engine.h src/handleInput.cpp src/BogoSort.cpp include/BogoSort.h src/SortingAlgorithm.cpp include/SortingAlgorithm.h include/array-common.h include/Array.h include/UI_common.h)
+add_executable(SortingVisualizer src/main.cpp src/Engine.cpp include/Engine.h src/handleInput.cpp src/BogoSort.cpp include/BogoSort.h src/SortingAlgorithm.cpp include/SortingAlgorithm.h include/Array.h include/UI_common.h)
 
 include_directories(include "C:/Program Files/SFML-2.5.1/include")
 

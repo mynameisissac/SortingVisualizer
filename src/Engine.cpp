@@ -26,7 +26,6 @@ Engine::Engine(int sizeOfArray)
     // create a sorting algorithm instance
     sortProcess = new BogoSort(arrayToSort);
 
-
     arrayToSort.print();
 }
 
@@ -55,7 +54,6 @@ void Engine::draw(Array<int>& arrayToDraw)
     window.clear(Color::White);
 
     arrayToDraw.draw(window);
-
     window.display();       // swap the back buffer and front buffer
 }
 
