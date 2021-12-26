@@ -28,7 +28,7 @@ class Engine {
         explicit Engine(int sizeOfArray);      // conversion constructor
         ~Engine();
 
-        void handleInput();
+        void handleInput(bool& freezeFlag);
         void draw(Array<int>& arrayToDraw);
 
         // the main loop of the program

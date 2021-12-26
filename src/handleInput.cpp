@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace sf;
 
-void Engine::handleInput()
+void Engine::handleInput(bool& freezeFlag)
 {
     Event event{};
 
@@ -19,10 +19,23 @@ void Engine::handleInput()
             window.close();
         }
 
+        // real time event listener
+        // that means the condition will be checked at any time
         if (Keyboard::isKeyPressed(Keyboard::Escape)){
             std::cout << "Closing window" << std::endl;
             window.close();
         }
+
+        if (event.type == Event::KeyPressed){
+
+            // key P for pausing the sorting process
+            if (event.key.code == Keyboard::P) {
+                std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
+                freezeFlag = !freezeFlag;              // reverse the freezeFlag
+            }
+
+        }
+
     }
 
 }
