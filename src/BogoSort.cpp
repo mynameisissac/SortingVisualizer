@@ -26,7 +26,6 @@ void BogoSort::shuffleArray(int* arr, int size)
 }
 
 
-
 void BogoSort::sortOneIteration()
 {
     // TODO: optimize the shuffling portion
