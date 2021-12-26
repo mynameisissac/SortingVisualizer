@@ -36,14 +36,13 @@ void Engine::run()
 
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
-        static bool freeze = false;     // a flag to control the pause event
-        handleInput(freeze);
+        handleInput();
 
         float timeChange = clock.getElapsedTime().asSeconds();
-        if (!freeze && timeChange >= DELAY_TIME){              // similar to time.sleep(DELAY_TIME)
+        if (timeChange >= DELAY_TIME){              // similar to time.sleep(DELAY_TIME)
             sortProcess->sortOneIteration();        // TODO: add more sorting algorithms
-            draw(arrayToSort);       // draw the array out after each iteration of the sorting algorithm
-            clock.restart();            // reset the clock for counting new timeChange
+            draw(arrayToSort);     // draw the array out after each iteration of the sorting algorithm
+            clock.restart();
         }
     }
 

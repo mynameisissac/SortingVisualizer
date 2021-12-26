@@ -11,6 +11,6 @@ const int WINDOW_WIDTH = 512;
 const int WINDOW_HEIGHT = 512;
 const int HEIGHT_SCALE = 10;
 
-const float DELAY_TIME = 0.6;       // unit: seconds
+const float DELAY_TIME = 0.5;       // unit: seconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H
