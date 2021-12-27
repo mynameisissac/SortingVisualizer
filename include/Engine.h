@@ -6,6 +6,7 @@
 #define SORTINGVISUALIZER_ENGINE_H
 #include <SFML/Graphics.hpp>
 #include "Array.h"
+#include "SideBar.h"
 #include "BogoSort.h"
 #include "SelectionSort.h"
 
@@ -15,6 +16,9 @@ class Engine {
         // window
         sf::RenderWindow window;
         sf::Vector2i resolution;
+
+        // sidebar (const)
+        const SideBar sideBar;
 
         // clock
         sf::Clock clock;      // for timing, delay
@@ -30,7 +34,9 @@ class Engine {
         ~Engine();
 
         void handleInput(bool& freezeFlag);
-        void draw(Array<int>& arrayToDraw);
+
+        // draw all the components on the window
+        void draw();
 
         // the main loop of the program
         void run();
