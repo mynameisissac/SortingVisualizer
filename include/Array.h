@@ -14,15 +14,15 @@ using namespace sf;
 template <typename T>
 class Array {
     private:
-        T* arr;     // pointer to a dynamic array of type T
+        T* arr;                             // pointer to a dynamic array of type T
 
         // pointer to an array of rectangles for visualizing the array
         RectangleShape* representation;
-        int size;   // size of the arrays
+        int size;                           // size of the arrays
 
     public:
 
-        explicit Array(int size);        // conversion constructor
+        explicit Array(int size);           // conversion constructor
         ~Array();
 
         int getSize() const;
@@ -31,7 +31,12 @@ class Array {
         bool sorted() const;
         void print() const;
 
+        // find the index of minimum element starting from a specific position
+        // operator< overloading for type T required
+        int findMinIndex(int from) const;
+
         void initialization();
+        bool swap(int index1, int index2);  // swap two elements in the data array by given indexes
         void draw(RenderWindow& window);
 };
 
@@ -92,6 +97,25 @@ void Array<T>::print() const
     std::cout << std::endl;
 }
 
+/**
+ * search the minimum element from a given position
+ * @tparam T type of elements stored in the data array
+ * @param from starting position to search
+ * @return index of minimum element start from give position
+ */
+template <typename T>
+int Array<T>::findMinIndex(int from) const
+{
+    int smallestIndex = from;
+
+    while (++from < size){
+        if (arr[smallestIndex] > arr[from])
+            smallestIndex = from;
+        ++from;
+    }
+
+    return smallestIndex;
+}
 
 /**
  * initialize the data array and the representation array (i.e. rectangles array)
@@ -118,6 +142,25 @@ void Array<T>::initialization()
 
 }
 
+/**
+ * swap two elements in the data array by given indexes
+ * @tparam T type of elements stored in the data array
+ * @param index1 position of element1
+ * @param index2 position of element2
+ * @return true if swap is successful, otherwise false
+ */
+template <typename T>
+bool Array<T>::swap(int index1, int index2)
+{
+    // validation of indexes
+    if (index1 < 0 || index2 < 0 || index1 >= size || index2 >= size)
+        return false;
+
+    T temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+    return true;
+}
 
 template <typename T>
 void Array<T>::draw(RenderWindow& window)
