@@ -33,6 +33,7 @@ Engine::Engine(int sizeOfArray)
 // the main game loop end until the window is closed
 void Engine::run()
 {
+
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
         static bool freeze = false;     // a flag to control the pause event

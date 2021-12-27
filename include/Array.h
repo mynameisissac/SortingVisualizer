@@ -125,7 +125,7 @@ template <typename T>
 void Array<T>::initialization()
 {
 
-    float rectangle_width = WINDOW_WIDTH / float(size);
+    float rectangle_width = DISPLAY_WIDTH / float(size);
 
     // initialize the array by ascending order
     for (int i=0; i < size; ++i) {
@@ -134,10 +134,10 @@ void Array<T>::initialization()
         arr[i] = (i + 1) * HEIGHT_SCALE;         // start from 1, prevent zero
 
         representation[i].setSize(Vector2f(rectangle_width, (float)arr[i]));
-        representation[i].setFillColor(Color::Black);
+        representation[i].setFillColor(Color(66,66,66));        // grey
         // set the origin of all rectangles to their left-bottom corner for drawing easier
         representation[i].setOrigin(0, representation[i].getSize().y);
-        representation[i].setPosition(float(i) * representation[i].getSize().x, WINDOW_HEIGHT);
+        representation[i].setPosition(float(i) * representation[i].getSize().x, DISPLAY_HEIGHT);
     }
 
 }
@@ -170,7 +170,7 @@ void Array<T>::draw(RenderWindow& window)
         // no change in width but only change in height
         representation[i].setSize(Vector2f(representation[i].getSize().x, (float)arr[i]));
         representation[i].setOrigin(0, representation[i].getSize().y);
-        representation[i].setPosition(float(i) * representation[i].getSize().x, WINDOW_HEIGHT);
+        representation[i].setPosition(float(i) * representation[i].getSize().x, DISPLAY_HEIGHT);
         window.draw(representation[i]);
     }
 }
