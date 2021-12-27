@@ -106,9 +106,9 @@ void Array<T>::print() const
 template <typename T>
 int Array<T>::findMinIndex(int from) const
 {
-    int smallestIndex = from;
+    int smallestIndex = from++;
 
-    while (++from < size){
+    while (from < size){
         if (arr[smallestIndex] > arr[from])
             smallestIndex = from;
         ++from;

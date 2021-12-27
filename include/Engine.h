@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "Array.h"
 #include "BogoSort.h"
+#include "SelectionSort.h"
 
 // the flow of the whole program as an object
 class Engine {
@@ -21,8 +22,8 @@ class Engine {
         // the array to be sorted
         Array<int> arrayToSort;     // instantiate as array of storing int elements
 
-        // owns a sorting algorithm for performing sorting
-        SortingAlgorithm* sortProcess;          // cannot construct an abstract base class type class object
+        // owns sorting algorithm for performing sorting
+        SortingAlgorithm* sortProcess1;          // cannot construct an abstract base class type class object
 
     public:
         explicit Engine(int sizeOfArray);      // conversion constructor

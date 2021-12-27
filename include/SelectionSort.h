@@ -13,9 +13,7 @@ class SelectionSort : public SortingAlgorithm{
         int stage;
 
     public:
-        explicit SelectionSort(Array<int>& arrayToSort);
-
-        static int findMin(int* arr, int size);
+        explicit SelectionSort(Array<int>& arrayToSort);    // constructor
 
         void sortOneIteration() override;
 

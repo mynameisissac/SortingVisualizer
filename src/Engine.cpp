@@ -23,8 +23,8 @@ Engine::Engine(int sizeOfArray)
     srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
-    // create a sorting algorithm instance
-    sortProcess = new BogoSort(arrayToSort);
+    // create sorting algorithm instance
+    sortProcess1 = new SelectionSort(arrayToSort);
 
     arrayToSort.print();
 }
@@ -40,7 +40,7 @@ void Engine::run()
 
         float timeChange = clock.getElapsedTime().asSeconds();
         if (!freeze && timeChange >= DELAY_TIME){              // similar to time.sleep(DELAY_TIME)
-            sortProcess->sortOneIteration();        // TODO: add more sorting algorithms
+            sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             draw(arrayToSort);       // draw the array out after each iteration of the sorting algorithm
             clock.restart();            // reset the clock for counting new timeChange
         }
@@ -60,5 +60,5 @@ void Engine::draw(Array<int>& arrayToDraw)
 
 Engine::~Engine()
 {
-    delete sortProcess;
+    delete sortProcess1;
 }

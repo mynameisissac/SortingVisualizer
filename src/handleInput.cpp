@@ -26,6 +26,7 @@ void Engine::handleInput(bool& freezeFlag)
             window.close();
         }
 
+
         if (event.type == Event::KeyPressed){
 
             // key P for pausing the sorting process
