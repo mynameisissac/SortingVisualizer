@@ -20,13 +20,13 @@ const float DISPLAY_HEIGHT = 512.0f;
 const float SIDEBAR_WIDTH = float(WINDOW_WIDTH) - DISPLAY_WIDTH;
 const float SIDEBAR_HEIGHT = float(WINDOW_HEIGHT);
 // color of sidebar
-static sf::Color SIDEBAR_COLOR(189,189,189);        // light grey
+static sf::Color SIDEBAR_COLOR(224,224,224);        // light grey
 
 //dimension of buttons
 const float BUTTON_WIDTH = 100.0f;
 const float BUTTON_HEIGHT = 60.0f;
 // color of buttons
-static sf::Color BUTTON_COLOR(109,76,65);
+static sf::Color BUTTON_COLOR(189,189,189);
 
 // height scale for rectangles bars (representation of the array)
 const int HEIGHT_SCALE = 10;

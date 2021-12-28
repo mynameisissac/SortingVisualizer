@@ -6,6 +6,8 @@
 #define SORTINGVISUALIZER_BUTTON_H
 #include <SFML/Graphics.hpp>
 
+
+// an interface(abstract base class for all kinds of buttons)
 class Button {
     private:
         // representation of the Button on screen
@@ -18,8 +20,9 @@ class Button {
         Button(const sf::Vector2f& size, const sf::Vector2f& position);
 
         void draw(sf::RenderWindow& window);
+
         // event handler of when clicking the button
-        void onClick();     // TODO
+        virtual void onClick() = 0;     // pure virtual function
 
 };
 
