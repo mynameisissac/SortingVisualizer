@@ -18,6 +18,7 @@ class Button {
     public:
         // constructor
         Button(const sf::Vector2f& size, const sf::Vector2f& position);
+        virtual ~Button() = default;
 
         void draw(sf::RenderWindow& window);
 

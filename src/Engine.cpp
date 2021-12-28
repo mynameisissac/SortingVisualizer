@@ -13,7 +13,7 @@ using namespace sf;
 Engine::Engine(int sizeOfArray)
     : arrayToSort(sizeOfArray) ,clock(),
     sideBar(Vector2f(DISPLAY_WIDTH, 0.0f), Vector2f(SIDEBAR_WIDTH, SIDEBAR_HEIGHT), SIDEBAR_COLOR,
-            new Button(Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+            new PauseButton(Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
                 Vector2f((SIDEBAR_WIDTH - BUTTON_WIDTH) / 2 + DISPLAY_WIDTH, BUTTON_HEIGHT )))
 {
     // window part i.e. UI
