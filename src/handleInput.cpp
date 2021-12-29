@@ -26,16 +26,31 @@ void Engine::handleInput(bool& freezeFlag)
             window.close();
         }
 
-
+        // keyboard event
         if (event.type == Event::KeyPressed){
 
             // key P for pausing the sorting process
             if (event.key.code == Keyboard::P) {
                 std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
-                freezeFlag = !freezeFlag;              // reverse the freezeFlag
+                PauseButton::onClick(freezeFlag);              // reverse the freezeFlag
             }
 
         }
+
+        // mouse events
+        if (event.type == Event::MouseButtonPressed){               // clicking
+
+            // if mouse enter the region of pause button
+            if (sideBar.getPauseButton().isHovering(window)){
+                // pressing mouse left on the button
+                if (Mouse::isButtonPressed(Mouse::Left)){
+                    std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
+                    PauseButton::onClick(freezeFlag);           // reverse the freezeFlag
+                }
+            }
+
+        }
+
 
     }
 

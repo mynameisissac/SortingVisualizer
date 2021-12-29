@@ -25,6 +25,7 @@ class SideBar {
         void draw(sf::RenderWindow& window) const;
 
         //accessors
+        Button& getPauseButton() const;
         sf::Vector2f getPosition() const;
         sf::Vector2f getDimension() const;
         sf::RectangleShape getDisplay() const;

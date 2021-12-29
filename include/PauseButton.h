@@ -10,7 +10,7 @@ class PauseButton : public Button{
     public:
         PauseButton(const sf::Vector2f& size, const sf::Vector2f& position);
 
-        void onClick() override;
+        static void onClick(bool& freezeFlag);
 
 };
 

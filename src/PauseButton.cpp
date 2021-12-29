@@ -9,7 +9,8 @@ PauseButton::PauseButton(const sf::Vector2f& size, const sf::Vector2f& position)
 {}
 
 
-void PauseButton::onClick()
+void PauseButton::onClick(bool& freezeFlag)
 {
-
+    // reverse the freezeFlag to perform pausing/resuming
+    freezeFlag = !freezeFlag;
 }

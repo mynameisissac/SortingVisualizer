@@ -7,7 +7,7 @@
 #include <SFML/Graphics.hpp>
 
 
-// an interface(abstract base class for all kinds of buttons)
+// a base class for all kinds of buttons
 class Button {
     private:
         // representation of the Button on screen
@@ -20,10 +20,10 @@ class Button {
         Button(const sf::Vector2f& size, const sf::Vector2f& position);
         virtual ~Button() = default;
 
-        void draw(sf::RenderWindow& window);
+        // check if the user's mouse is hovering on the button
+        bool isHovering(sf::RenderWindow& window) const;
 
-        // event handler of when clicking the button
-        virtual void onClick() = 0;     // pure virtual function
+        void draw(sf::RenderWindow& window);
 
 };
 

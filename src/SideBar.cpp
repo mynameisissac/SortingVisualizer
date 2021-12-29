@@ -23,6 +23,12 @@ void SideBar::draw(RenderWindow& window) const
     pauseButton->draw(window);
 }
 
+// return the pause button object by reference
+Button& SideBar::getPauseButton() const
+{
+    return *pauseButton;
+}
+
 // return the position of the top-left corner of the sidebar
 Vector2f SideBar::getPosition() const
 {
