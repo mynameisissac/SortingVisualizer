@@ -46,6 +46,7 @@ void Engine::handleInput(bool& freezeFlag)
                 if (Mouse::isButtonPressed(Mouse::Left)){
                     std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
                     PauseButton::onClick(freezeFlag);           // reverse the freezeFlag
+                    clock.restart();        // reset the clock to make the animation smooth
                 }
             }
 
