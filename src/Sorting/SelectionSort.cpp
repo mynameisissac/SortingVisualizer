@@ -10,6 +10,7 @@ SelectionSort::SelectionSort(Array<int>& arrayToSort)
 {}
 
 
+// findMinIndex(Array<int> array, int stage); TODO
 
 void SelectionSort::sortOneIteration()
 {
