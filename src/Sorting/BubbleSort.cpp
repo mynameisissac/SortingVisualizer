@@ -12,13 +12,15 @@ BubbleSort::BubbleSort(Array<int>& arrayToSort)
 
 void BubbleSort::sortOneIteration()
 {
+    if (counterOuterLoop < arrayToSort.getSize() - 1) {
 
-    if (counterOuterLoop < arrayToSort.getSize() - 1
-        && arrayToSort.getArrayPointer()[counterInnerLoop + 1] < arrayToSort.getArrayPointer()[counterInnerLoop])
-        arrayToSort.swap(counterInnerLoop, counterInnerLoop + 1);
+        if (arrayToSort.getArrayPointer()[counterInnerLoop + 1] < arrayToSort.getArrayPointer()[counterInnerLoop])
+            arrayToSort.swap(counterInnerLoop, counterInnerLoop + 1);
 
-    // update the counters
-    counterOuterLoop = counterOuterLoop + (counterInnerLoop + 1) / (arrayToSort.getSize() - 1 - counterOuterLoop);
-    counterInnerLoop = (counterInnerLoop + 1) % (arrayToSort.getSize() - 1 - counterOuterLoop);
+        // update the counters
+        int oldCounterOuter = counterOuterLoop;     // temporarily store the old Counter of outer loop
+        counterOuterLoop = counterOuterLoop + (counterInnerLoop + 1) / (arrayToSort.getSize() - 1 - counterOuterLoop);
+        counterInnerLoop = (counterInnerLoop + 1) % (arrayToSort.getSize() - 1 - oldCounterOuter);
+    }
 
 }
