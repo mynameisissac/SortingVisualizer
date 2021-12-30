@@ -33,6 +33,6 @@ const int HEIGHT_SCALE = 10;
 // color of rectangles bars
 static sf::Color ARRAY_COLOR(66,66,66);         // grey
 
-const float DELAY_TIME = 0.4;       // unit: seconds
+const float DELAY_TIME = 0.1;       // unit: seconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H

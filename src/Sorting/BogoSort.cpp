@@ -2,7 +2,7 @@
 // Created by kshou on 2021/12/23.
 //
 
-#include "BogoSort.h"
+#include "Sorting/BogoSort.h"
 #include <cstdlib>
 
 // constructor

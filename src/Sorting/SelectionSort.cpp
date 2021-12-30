@@ -2,7 +2,7 @@
 // Created by kshou on 2021/12/26.
 //
 
-#include "SelectionSort.h"
+#include "Sorting/SelectionSort.h"
 
 
 SelectionSort::SelectionSort(Array<int>& arrayToSort)

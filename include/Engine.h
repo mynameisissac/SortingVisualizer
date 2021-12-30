@@ -7,8 +7,9 @@
 #include <SFML/Graphics.hpp>
 #include "Array.h"
 #include "SideBar.h"
-#include "BogoSort.h"
-#include "SelectionSort.h"
+#include "Sorting/BogoSort.h"
+#include "Sorting/SelectionSort.h"
+#include "Sorting/BubbleSort.h"
 
 // the flow of the whole program as an object
 class Engine {

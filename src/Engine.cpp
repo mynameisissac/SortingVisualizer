@@ -27,9 +27,9 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new SelectionSort(arrayToSort);
+    sortProcess1 = new BubbleSort(arrayToSort);          // choose a sorting algorithm here
 
-    arrayToSort.print();
+    arrayToSort.print();            // print the shuffled arrayToSort
 }
 
 
