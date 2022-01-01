@@ -165,6 +165,8 @@ bool Array<T>::swap(int index1, int index2)
 template <typename T>
 void Array<T>::draw(RenderWindow& window)
 {
+    sf::sleep(Time(milliseconds(DELAY_TIME)));
+
     // drawing the whole array by representing elements as rectangles
     for (int i=0; i < size; ++i) {
         // no change in width but only change in height
@@ -173,6 +175,7 @@ void Array<T>::draw(RenderWindow& window)
         representation[i].setPosition(float(i) * representation[i].getSize().x, DISPLAY_HEIGHT);
         window.draw(representation[i]);
     }
+
 }
 
 #endif //SORTINGVISUALIZER_ARRAY_H

@@ -17,6 +17,7 @@ class SelectionSort : public SortingAlgorithm{
 
         void sortOneIteration() override;
 
+        void sort(BackGroundUI& backGroundUi) override;
 };
 
 

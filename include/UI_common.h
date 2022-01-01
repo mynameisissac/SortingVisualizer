@@ -7,6 +7,8 @@
 #include <SFML/Graphics.hpp>
 
 // ui-related common constants and static variables
+// background color
+static sf::Color BACKGROUND_COLOR(sf::Color::White);
 
 // the dimension of the window
 const int WINDOW_WIDTH = 700;
@@ -29,10 +31,10 @@ const float BUTTON_HEIGHT = 60.0f;
 static sf::Color BUTTON_COLOR(189,189,189);
 
 // height scale for rectangles bars (representation of the array)
-const int HEIGHT_SCALE = 10;
+const float HEIGHT_SCALE = 0.3f;
 // color of rectangles bars
 static sf::Color ARRAY_COLOR(66,66,66);         // grey
 
-const float DELAY_TIME = 0.1;       // unit: seconds
+const int DELAY_TIME = 15;       // unit: milliseconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H

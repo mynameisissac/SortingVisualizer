@@ -5,6 +5,7 @@
 #ifndef SORTINGVISUALIZER_ENGINE_H
 #define SORTINGVISUALIZER_ENGINE_H
 #include <SFML/Graphics.hpp>
+#include "BackGroundUI.h"
 #include "Array.h"
 #include "SideBar.h"
 #include "Sorting/BogoSort.h"
@@ -21,8 +22,11 @@ class Engine {
         // sidebar (const)
         const SideBar sideBar;
 
+        // for drawing all elements in batch
+        BackGroundUI backgroundUI;
+
         // clock
-        sf::Clock clock;      // for timing, delay
+        sf::Clock clock;
 
         // the array to be sorted
         Array<int> arrayToSort;     // instantiate as array of storing int elements
@@ -35,9 +39,6 @@ class Engine {
         ~Engine();
 
         void handleInput(bool& freezeFlag);
-
-        // draw all the components on the window
-        void draw();
 
         // the main loop of the program
         void run();

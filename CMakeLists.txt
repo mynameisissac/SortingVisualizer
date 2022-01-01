@@ -3,7 +3,7 @@ project(SortingVisualizer)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SortingVisualizer src/main.cpp src/Engine.cpp include/Engine.h src/handleInput.cpp src/Sorting/BogoSort.cpp include/Sorting/BogoSort.h src/Sorting/SortingAlgorithm.cpp include/Sorting/SortingAlgorithm.h include/Array.h include/UI_common.h src/Sorting/SelectionSort.cpp include/Sorting/SelectionSort.h src/SideBar.cpp include/SideBar.h src/Button.cpp include/Button.h src/PauseButton.cpp include/PauseButton.h src/Sorting/BubbleSort.cpp include/Sorting/BubbleSort.h)
+add_executable(SortingVisualizer src/main.cpp src/Engine.cpp include/Engine.h src/handleInput.cpp src/Sorting/BogoSort.cpp include/Sorting/BogoSort.h src/Sorting/SortingAlgorithm.cpp include/Sorting/SortingAlgorithm.h include/Array.h include/UI_common.h src/Sorting/SelectionSort.cpp include/Sorting/SelectionSort.h src/SideBar.cpp include/SideBar.h src/Button.cpp include/Button.h src/PauseButton.cpp include/PauseButton.h src/Sorting/BubbleSort.cpp include/Sorting/BubbleSort.h src/BackGroundUI.cpp include/BackGroundUI.h)
 
 include_directories(include "C:/Program Files/SFML-2.5.1/include")
 

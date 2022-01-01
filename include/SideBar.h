@@ -22,6 +22,7 @@ class SideBar {
         SideBar(const sf::Vector2f& position, const sf::Vector2f& size, const sf::Color& color, Button* pauseButton);
         ~SideBar();
 
+        // draw the sideBar and all buttons on it
         void draw(sf::RenderWindow& window) const;
 
         //accessors

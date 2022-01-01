@@ -23,3 +23,7 @@ void SelectionSort::sortOneIteration()
 
 }
 
+void SelectionSort::sort(BackGroundUI& backGroundUi)
+{
+
+}

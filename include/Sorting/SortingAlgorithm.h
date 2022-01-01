@@ -6,7 +6,7 @@
 #define SORTINGVISUALIZER_SORTINGALGORITHM_H
 
 #include "Array.h"
-
+#include "BackGroundUI.h"
 
 // TODO : change to template?
 // abstract base class for all sorting algorithms
@@ -19,8 +19,11 @@ class SortingAlgorithm {
         explicit SortingAlgorithm(Array<int>& arrayToSort);     // constructor
         virtual ~SortingAlgorithm();        // destructor
 
+        virtual void sort(BackGroundUI& backGroundUi) = 0;
+
         // pure virtual function for performing the sorting of one iteration
         virtual void sortOneIteration() = 0;
+
 };
 
 
