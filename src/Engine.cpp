@@ -20,6 +20,7 @@ Engine::Engine(int sizeOfArray)
     // window part i.e. UI
     resolution = Vector2i(WINDOW_WIDTH, WINDOW_HEIGHT);
     window.create(VideoMode(resolution.x, resolution.y), "Sorting Visualizer", Style::Close | Style::Titlebar);
+    window.setFramerateLimit(60);
 
     // array to be sorted as an object
     arrayToSort.initialization();
@@ -28,7 +29,7 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new BubbleSort(arrayToSort);          // choose a sorting algorithm here
+    sortProcess1 = new SelectionSort(arrayToSort);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw();
@@ -41,15 +42,24 @@ void Engine::run()
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
         static bool freeze = false;     // a flag to control the pause event
+        static bool finished = false;   // a flag indicating if the sorting is finished
+
         handleInput(freeze);
 
-        if (!freeze){              // similar to time.sleep(DELAY_TIME)
+        if (!freeze && !finished){
             arrayToSort.draw(window);             // draw the array out after each iteration of the sorting algorithm
             backgroundUI.draw();
-            sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
+            finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
+            sf::sleep(Time(milliseconds(DELAY_TIME)));
         }
 
-        //sortProcess1->sort(backgroundUI);
+        static bool sayOnce = true;        //prevent printing "sorting finished." too many times
+        if (finished && sayOnce) {
+            std::cout << "sorting finished." << std::endl;
+            sayOnce = false;
+        }
+
+        //sortProcess1->sort(backgroundUI);         // TODO: VERY future
     }
 }
 

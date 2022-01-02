@@ -134,7 +134,7 @@ void Array<T>::initialization()
         arr[i] = (i + 1) * HEIGHT_SCALE;         // start from 1, prevent zero
 
         representation[i].setSize(Vector2f(rectangle_width, (float)arr[i]));
-        representation[i].setFillColor(ARRAY_COLOR);        // grey
+        representation[i].setFillColor(arrayColor);        // grey
         // set the origin of all rectangles to their left-bottom corner for drawing easier
         representation[i].setOrigin(0, representation[i].getSize().y);
         representation[i].setPosition(float(i) * representation[i].getSize().x, DISPLAY_HEIGHT);
@@ -165,8 +165,6 @@ bool Array<T>::swap(int index1, int index2)
 template <typename T>
 void Array<T>::draw(RenderWindow& window)
 {
-    sf::sleep(Time(milliseconds(DELAY_TIME)));
-
     // drawing the whole array by representing elements as rectangles
     for (int i=0; i < size; ++i) {
         // no change in width but only change in height

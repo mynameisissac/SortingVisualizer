@@ -31,10 +31,15 @@ void BogoSort::sort(BackGroundUI& backGroundUi)
 }
 
 
-void BogoSort::sortOneIteration()
+bool BogoSort::sortOneIteration()
 {
     // TODO: optimize the shuffling portion
     // shuffle the array once if not sorted
-    if (!arrayToSort.sorted())
+    if (!arrayToSort.sorted()) {
         shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());
+        return false;
+    }
+
+    return true;
 }
+

@@ -32,7 +32,7 @@ void BubbleSort::sort(BackGroundUI& backGroundUi)
 }
 
 
-void BubbleSort::sortOneIteration()
+bool BubbleSort::sortOneIteration()
 {
     if (counterOuterLoop < arrayToSort.getSize() - 1) {
 
@@ -44,6 +44,8 @@ void BubbleSort::sortOneIteration()
         counterOuterLoop = counterOuterLoop + (counterInnerLoop + 1) / (arrayToSort.getSize() - 1 - counterOuterLoop);
         counterInnerLoop = (counterInnerLoop + 1) % (arrayToSort.getSize() - 1 - oldCounterOuter);
 
+        return false;
     }
 
+    return true;
 }

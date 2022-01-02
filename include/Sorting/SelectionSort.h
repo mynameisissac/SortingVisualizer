@@ -9,13 +9,17 @@
 
 class SelectionSort : public SortingAlgorithm{
     private:
-        // indicate which iteration is currently sort to
+        // indicate which iteration(outer loop) is currently sort to
         int stage;
+        // indicate the index of element currently comparing in findingMinIndex
+        int searchingStage;
+        // store the currently min index
+        int currentMinIndex;
 
     public:
         explicit SelectionSort(Array<int>& arrayToSort);    // constructor
 
-        void sortOneIteration() override;
+        bool sortOneIteration() override;
 
         void sort(BackGroundUI& backGroundUi) override;
 };

@@ -22,7 +22,8 @@ class SortingAlgorithm {
         virtual void sort(BackGroundUI& backGroundUi) = 0;
 
         // pure virtual function for performing the sorting of one iteration
-        virtual void sortOneIteration() = 0;
+        // it returns true if whole sorting process is finished
+        virtual bool sortOneIteration() = 0;
 
 };
 

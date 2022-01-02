@@ -17,7 +17,7 @@ class BubbleSort : public SortingAlgorithm{
     public:
         explicit BubbleSort(Array<int>& arrayToSort);    // constructor
 
-        void sortOneIteration() override;
+        bool sortOneIteration() override;
 
         void sort(BackGroundUI& backGroundUi) override;
 };

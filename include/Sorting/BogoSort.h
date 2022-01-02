@@ -4,10 +4,11 @@
 
 #ifndef SORTINGVISUALIZER_BOGOSORT_H
 #define SORTINGVISUALIZER_BOGOSORT_H
+
 #include "SortingAlgorithm.h"
 
 
-class BogoSort : public SortingAlgorithm{
+class BogoSort : public SortingAlgorithm {
 
     public:
         explicit BogoSort(Array<int>& arrayToSort);
@@ -15,7 +16,7 @@ class BogoSort : public SortingAlgorithm{
         // this shuffleArray function can be reused by class members and others classes
         static void shuffleArray(int* arr, int size);
 
-        void sortOneIteration() override;
+        bool sortOneIteration() override;
 
         void sort(BackGroundUI& backGroundUi) override;       // TODO
 };
