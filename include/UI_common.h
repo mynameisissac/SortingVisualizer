@@ -6,19 +6,19 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static const int SizeOfArray = 1000;            // <-- change this number to test with different size of arrays
+static const int SizeOfArray = 900;            // <-- change this number to test with different size of arrays
 
 // ui-related common constants and static variables
 // background color
 static sf::Color BACKGROUND_COLOR(sf::Color::White);
 
 // the dimension of the window
-const int WINDOW_WIDTH = 1500;
-const int WINDOW_HEIGHT = 512;
+const int WINDOW_WIDTH = 1650;
+const int WINDOW_HEIGHT = 750;
 
 // the dimension of the region to display the sorting process
-const float DISPLAY_WIDTH = 1150.0f;
-const float DISPLAY_HEIGHT = 512.0f;
+const float DISPLAY_WIDTH = 1500.0f;
+const float DISPLAY_HEIGHT = (float)WINDOW_HEIGHT;
 
 // dimension of the sidebar
 const float SIDEBAR_WIDTH = float(WINDOW_WIDTH) - DISPLAY_WIDTH;
@@ -36,8 +36,9 @@ static sf::Color BUTTON_COLOR(189,189,189);
 const float HEIGHT_SCALE = float(WINDOW_HEIGHT) / SizeOfArray;
 // color of rectangles bars
 static sf::Color arrayColor(66, 66, 66);         // grey
-static sf::Color arrayHighlightColor(93, 64, 55);       // brown
+static sf::Color arrayHighlightColor(255, 193, 7);       // yellow
 
+// control the small suspend time between each iteration/comparison
 const int DELAY_TIME = 0;       // unit: milliseconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H
