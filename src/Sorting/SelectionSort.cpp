@@ -31,8 +31,10 @@ bool SelectionSort::sortOneIteration()
         else
             ++searchingStage;
 
+        // highlight while scanning
+        if (searchingStage < arrayToSort.getSize())
+            arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayHighlightColor);
         arrayToSort.getRecArrPointer()[oldSearchingStage].setFillColor(arrayColor);
-        arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayHighlightColor);   // highlight while scanning
 
         return false;
     }
