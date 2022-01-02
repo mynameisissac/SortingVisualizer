@@ -24,7 +24,7 @@ void BubbleSort::sort(BackGroundUI& backGroundUi)
 
             // draw the array after each iteration
             arrayToSort.draw(backGroundUi.getWindow());
-            backGroundUi.draw();        // draw all the backGround elements and display the screen
+            backGroundUi.draw("0");        // draw all the backGround elements and display the screen
         }
 
     oneCycleFinished = true;

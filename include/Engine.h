@@ -27,6 +27,7 @@ class Engine {
 
         // clock
         sf::Clock clock;
+        float stopWatchOffSet;
 
         // the array to be sorted
         Array<int> arrayToSort;     // instantiate as array of storing int elements

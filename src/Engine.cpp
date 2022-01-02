@@ -11,8 +11,8 @@ using namespace sf;
 
 // create a sorting visualization process by passing a size of array to sort
 Engine::Engine(int sizeOfArray)
-    : arrayToSort(sizeOfArray), clock(),
-    sideBar(Vector2f(DISPLAY_WIDTH, 0.0f), Vector2f(SIDEBAR_WIDTH, SIDEBAR_HEIGHT), SIDEBAR_COLOR,
+    : arrayToSort(sizeOfArray), clock(), stopWatchOffSet(0),
+      sideBar(Vector2f(DISPLAY_WIDTH, 0.0f), Vector2f(SIDEBAR_WIDTH, SIDEBAR_HEIGHT), SIDEBAR_COLOR,
             new PauseButton(Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
                 Vector2f((SIDEBAR_WIDTH - BUTTON_WIDTH) / 2 + DISPLAY_WIDTH, BUTTON_HEIGHT )))
         , backgroundUI(window, &sideBar)
@@ -32,7 +32,7 @@ Engine::Engine(int sizeOfArray)
     sortProcess1 = new SelectionSort(arrayToSort);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
-    backgroundUI.draw();
+    backgroundUI.draw("0");
 }
 
 
@@ -48,7 +48,7 @@ void Engine::run()
 
         if (!freeze && !finished){
             arrayToSort.draw(window);             // draw the array out after each iteration of the sorting algorithm
-            backgroundUI.draw();
+            backgroundUI.draw(std::to_string(clock.getElapsedTime().asSeconds() + stopWatchOffSet));
             finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             sf::sleep(Time(milliseconds(DELAY_TIME)));
         }

@@ -6,7 +6,7 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static int SizeOfArray = 20;            // <-- change this number to test with different size of arrays
+static int SizeOfArray = 40;            // <-- change this number to test with different size of arrays
 
 // ui-related common constants and static variables
 // background color
@@ -32,10 +32,15 @@ const float BUTTON_HEIGHT = 60.0f;
 // color of buttons
 static sf::Color BUTTON_COLOR(189,189,189);
 
+// position of the text label (stopWatch information)
+const sf::Vector2f TEXTLABEL1_POSITION(DISPLAY_WIDTH + 5.0f, DISPLAY_HEIGHT * 3/4);
+const sf::Vector2f TEXTLABEL2_POSITION(DISPLAY_WIDTH + 5.0f + 10.0f, DISPLAY_HEIGHT * 3/4 + 20.0f);
+static sf::Color textColor(33, 33, 33);
+
 // height scale for rectangles bars (representation of the array)
 static float HEIGHT_SCALE = float(WINDOW_HEIGHT) / SizeOfArray;
 // color of rectangles bars
-static sf::Color arrayColor(66, 66, 66);         // grey
+static sf::Color arrayColor(66,66,66);         // grey
 static sf::Color arrayHighlightColor(255, 193, 7);       // yellow
 
 // control the small suspend time between each iteration/comparison

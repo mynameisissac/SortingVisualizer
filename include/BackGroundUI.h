@@ -23,7 +23,7 @@ class BackGroundUI {
         explicit BackGroundUI(sf::RenderWindow& window, const SideBar* sideBar);     // constructor
         sf::RenderWindow& getWindow() const;
 
-        void draw();
+        void draw(const std::string& stopWatch);
 
 };
 

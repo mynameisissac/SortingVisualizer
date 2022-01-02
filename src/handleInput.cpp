@@ -33,6 +33,7 @@ void Engine::handleInput(bool& freezeFlag)
             if (event.key.code == Keyboard::P) {
                 std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
                 PauseButton::onClick(freezeFlag);              // reverse the freezeFlag
+                stopWatchOffSet += clock.restart().asSeconds();
             }
 
         }
@@ -46,7 +47,7 @@ void Engine::handleInput(bool& freezeFlag)
                 if (Mouse::isButtonPressed(Mouse::Left)){
                     std::cout << ( freezeFlag ? "Resume" : "Pause" ) << std::endl;
                     PauseButton::onClick(freezeFlag);           // reverse the freezeFlag
-                    clock.restart();            // make the animation smoother
+                    stopWatchOffSet += clock.restart().asSeconds();
                 }
             }
 

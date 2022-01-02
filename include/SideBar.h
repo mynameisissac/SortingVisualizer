@@ -5,6 +5,8 @@
 #ifndef SORTINGVISUALIZER_SIDEBAR_H
 #define SORTINGVISUALIZER_SIDEBAR_H
 #include "PauseButton.h"
+#include "UI_common.h"
+//#include <string>
 
 class SideBar {
     private:
@@ -18,9 +20,16 @@ class SideBar {
         // Buttons (owned)
         Button* pauseButton;
 
+        // Text labels
+        sf::Font font;
+        sf::Text* timeLabel;
+        sf::Text* stopWatch;
+
     public:
         SideBar(const sf::Vector2f& position, const sf::Vector2f& size, const sf::Color& color, Button* pauseButton);
         ~SideBar();
+
+        void stopWatchUpdate(const std::string& timeToDisplay) const;
 
         // draw the sideBar and all buttons on it
         void draw(sf::RenderWindow& window) const;
