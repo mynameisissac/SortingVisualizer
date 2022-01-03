@@ -19,6 +19,7 @@ bool InsertionSort::sortOneIteration()
         else    // swapping while searching
             arrayToSort.swap(searchingStage + 1, searchingStage);
 
+        arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayColor);
         // update counters
         if (found || searchingStage == 0){      // if need to update stage(outer loop counter)
             ++stage;
@@ -27,6 +28,11 @@ bool InsertionSort::sortOneIteration()
         }
         else
             --searchingStage;
+
+        // highlighting
+        if (searchingStage < arrayToSort.getSize() - 1)
+            arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayHighlightColor);
+
 
         return false;
     }

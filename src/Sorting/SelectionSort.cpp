@@ -17,7 +17,7 @@ bool SelectionSort::sortOneIteration()
         if (arrayToSort.getArrayPointer()[currentMinIndex] > arrayToSort.getArrayPointer()[searchingStage])
             currentMinIndex = searchingStage;
 
-        int oldSearchingStage = searchingStage;     // store the oldSearchingPosition for filling the color
+        arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayColor);        // restore the old color
         // update the stages(counters)
         if ( (searchingStage + 1) >= arrayToSort.getSize()) {       // if need to go to next stage
             // swap the stage-th element with the minimum elements before going to next stage
@@ -34,7 +34,7 @@ bool SelectionSort::sortOneIteration()
         // highlight while scanning
         if (searchingStage < arrayToSort.getSize())
             arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayHighlightColor);
-        arrayToSort.getRecArrPointer()[oldSearchingStage].setFillColor(arrayColor);
+
 
         return false;
     }
