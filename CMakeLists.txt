@@ -22,7 +22,7 @@ include/PauseButton.h
 src/Sorting/BubbleSort.cpp 
 include/Sorting/BubbleSort.h 
 src/BackGroundUI.cpp 
-include/BackGroundUI.h)
+include/BackGroundUI.h src/Sorting/InsertionSort.cpp include/Sorting/InsertionSort.h)
 
 include_directories(include "C:/Program Files/SFML-2.5.1/include")
 

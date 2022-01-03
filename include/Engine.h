@@ -11,6 +11,7 @@
 #include "Sorting/BogoSort.h"
 #include "Sorting/SelectionSort.h"
 #include "Sorting/BubbleSort.h"
+#include "Sorting/InsertionSort.h"
 
 // the flow of the whole program as an object
 class Engine {
