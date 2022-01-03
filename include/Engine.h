@@ -40,7 +40,7 @@ class Engine {
         explicit Engine(int sizeOfArray);      // conversion constructor
         ~Engine();
 
-        void handleInput(bool& freezeFlag);
+        void handleInput();
 
         // the main loop of the program
         void run();

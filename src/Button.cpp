@@ -28,7 +28,17 @@ bool Button::isHovering(RenderWindow& window) const
     return false;
 }
 
+void Button::setTexture(sf::Texture* texture)
+{
+    display.setTexture(texture);
+}
+
 void Button::draw(RenderWindow& window)
 {
     window.draw(display);
+}
+
+sf::RectangleShape Button::getDisplay() const
+{
+    return display;
 }

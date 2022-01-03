@@ -7,11 +7,19 @@
 #include "Button.h"
 
 class PauseButton : public Button{
+    private:
+        // textures
+        sf::Texture pauseTexture;
+        sf::Texture resumeTexture;
+        // bool controlling the freezing of window
+        static bool freezeFlag;
+
     public:
         PauseButton(const sf::Vector2f& size, const sf::Vector2f& position);
+        // accessor
+        static bool getFreezeFlag();
 
-        static void onClick(bool& freezeFlag);
-
+        void onClick() override;
 };
 
 

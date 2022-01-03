@@ -6,7 +6,7 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static int SizeOfArray = 50;            // <-- change this number to test with different size of arrays
+static int SizeOfArray = 1000;            // <-- change this number to test with different size of arrays
 
 // ui-related common constants and static variables
 // background color
@@ -28,7 +28,7 @@ static sf::Color SIDEBAR_COLOR(224,224,224);        // light grey
 
 //dimension of buttons
 const float BUTTON_WIDTH = int(SIDEBAR_WIDTH * 3/5);
-const float BUTTON_HEIGHT = 60.0f;
+const float BUTTON_HEIGHT = BUTTON_WIDTH;               // make it a square button
 // color of buttons
 static sf::Color BUTTON_COLOR(189,189,189);
 

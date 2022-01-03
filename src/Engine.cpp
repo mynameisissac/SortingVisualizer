@@ -7,7 +7,6 @@
 #include <ctime>
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 using namespace sf;
 
 
@@ -50,19 +49,18 @@ void Engine::run()
 {
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
-        static bool freeze = false;     // a flag to control the pause event
         static bool finished = false;   // a flag indicating if the sorting is finished
+        handleInput();
 
-        handleInput(freeze);
-
-        if (!freeze && !finished){
-            arrayToSort.draw(window);             // draw the array out after each iteration of the sorting algorithm
+        if (!PauseButton::getFreezeFlag() && !finished){
+            arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
             backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             sf::sleep(Time(milliseconds(DELAY_TIME)));
         }
 
-        static bool sayOnce = true;        //prevent printing "sorting finished." too many times
+
+        static bool sayOnce = true;                 //prevent printing "sorting finished." too many times
         if (finished && sayOnce) {
             std::cout << "sorting finished." << std::endl;
             sayOnce = false;

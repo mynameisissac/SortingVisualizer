@@ -15,6 +15,13 @@ class Button {
         // position of the top-left corner of the Button
         sf::Vector2f position;
 
+    protected:
+        // mutator
+        void setTexture(sf::Texture* texture);
+
+        // accessors
+        sf::RectangleShape getDisplay() const;
+
     public:
         // constructor
         Button(const sf::Vector2f& size, const sf::Vector2f& position);
@@ -25,6 +32,8 @@ class Button {
 
         void draw(sf::RenderWindow& window);
 
+        // pure virtual function of handling onClick event
+        virtual void onClick() = 0;
 };
 
 

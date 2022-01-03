@@ -3,7 +3,6 @@
 //
 
 #include "Sorting/InsertionSort.h"
-#include <iostream>
 
 InsertionSort::InsertionSort(Array<int>& arrayToSort)
     : SortingAlgorithm(arrayToSort), stage(1), searchingStage(stage - 1), found(false)
@@ -32,7 +31,6 @@ bool InsertionSort::sortOneIteration()
         // highlighting
         if (searchingStage < arrayToSort.getSize() - 1)
             arrayToSort.getRecArrPointer()[searchingStage].setFillColor(arrayHighlightColor);
-
 
         return false;
     }
