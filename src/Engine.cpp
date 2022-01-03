@@ -6,6 +6,8 @@
 #include "UI_common.h"
 #include <ctime>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 using namespace sf;
 
 
@@ -35,6 +37,13 @@ Engine::Engine(int sizeOfArray)
     backgroundUI.draw("0");
 }
 
+// helper function to set precision of a float and return a string
+std::string setPrecisionToString(float floatNum, int n)
+{
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(n) << floatNum;
+    return stream.str();
+}
 
 // the main game loop end until the window is closed
 void Engine::run()
@@ -48,7 +57,7 @@ void Engine::run()
 
         if (!freeze && !finished){
             arrayToSort.draw(window);             // draw the array out after each iteration of the sorting algorithm
-            backgroundUI.draw(std::to_string(clock.getElapsedTime().asSeconds() + stopWatchOffSet));
+            backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             sf::sleep(Time(milliseconds(DELAY_TIME)));
         }

@@ -6,7 +6,6 @@
 #define SORTINGVISUALIZER_SIDEBAR_H
 #include "PauseButton.h"
 #include "UI_common.h"
-//#include <string>
 
 class SideBar {
     private:
