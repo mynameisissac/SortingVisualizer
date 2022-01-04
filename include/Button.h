@@ -27,7 +27,7 @@ class Button {
         Button(const sf::Vector2f& size, const sf::Vector2f& position);
         virtual ~Button() = default;
 
-        // check if the user's mouse is hovering on the button
+        // check if the user's mouse is hovering on the button (for square button only)
         bool isHovering(sf::RenderWindow& window) const;
 
         void draw(sf::RenderWindow& window);

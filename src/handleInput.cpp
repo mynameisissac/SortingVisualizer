@@ -32,7 +32,7 @@ void Engine::handleInput()
         if (event.type == Event::KeyPressed){
 
             // key P for pausing the sorting process
-            if (event.key.code == Keyboard::P) {
+            if (!finished && event.key.code == Keyboard::P) {
                 std::cout << ( PauseButton::getFreezeFlag() ? "Resume" : "Pause" ) << std::endl;
 
                 // if not paused before pressing
@@ -54,7 +54,7 @@ void Engine::handleInput()
         if (event.type == Event::MouseButtonPressed){               // clicking
 
             // if mouse enter the region of pause button
-            if (sideBar.getPauseButton().isHovering(window)){
+            if (!finished && sideBar.getPauseButton().isHovering(window)){
                 // pressing mouse left on the button
                 if (Mouse::isButtonPressed(Mouse::Left)){
                     std::cout << ( PauseButton::getFreezeFlag() ? "Resume" : "Pause" ) << std::endl;

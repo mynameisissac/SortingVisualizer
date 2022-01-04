@@ -29,6 +29,8 @@ class Engine {
         // clock
         sf::Clock clock;
         float stopWatchOffSet;
+        // indicate if the whole sorting is finished
+        bool finished = false;
 
         // the array to be sorted
         Array<int> arrayToSort;     // instantiate as array of storing int elements

@@ -16,6 +16,7 @@ Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)
 
 /**
  * check if the user's mouse is on the button region
+ * ,note this implementation for square button only
  * @param window the window that the button is on
  * @return true if user's mouse is hovering on the button, otherwise false
  */
