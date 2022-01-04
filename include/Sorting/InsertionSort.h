@@ -19,7 +19,7 @@ class InsertionSort : public SortingAlgorithm{
     public:
         explicit InsertionSort(Array<int>& arrayToSort);
 
-        void sort(BackGroundUI& backGroundUi) override;
+        bool sort(BackGroundUI& backGroundUi) override;
 
         bool sortOneIteration() override;
 

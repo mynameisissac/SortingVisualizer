@@ -19,7 +19,7 @@ class SortingAlgorithm {
         explicit SortingAlgorithm(Array<int>& arrayToSort);     // constructor
         virtual ~SortingAlgorithm();        // destructor
 
-        virtual void sort(BackGroundUI& backGroundUi) = 0;
+        virtual bool sort(BackGroundUI& backGroundUi) = 0;
 
         // pure virtual function for performing the sorting of one iteration
         // it returns true if whole sorting process is finished

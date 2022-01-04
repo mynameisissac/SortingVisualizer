@@ -50,14 +50,16 @@ void Engine::run()
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
 
-        handleInput();
+        handleInput(*this);
 
-        if (!PauseButton::getFreezeFlag() && !finished){
+        /*if (!PauseButton::getFreezeFlag() && !finished){
             arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
             backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             sf::sleep(Time(milliseconds(DELAY_TIME)));
-        }
+        }*/
+
+        finished = sortProcess1->sort(backgroundUI);         // TODO: VERY future
 
         static bool sayOnce = true;                 //prevent printing "sorting finished." too many times
         if (finished && sayOnce) {
@@ -65,7 +67,7 @@ void Engine::run()
             sayOnce = false;
         }
 
-        //sortProcess1->sort(backgroundUI);         // TODO: VERY future
+
     }
 }
 
@@ -73,4 +75,9 @@ void Engine::run()
 Engine::~Engine()
 {
     delete sortProcess1;
+}
+
+BackGroundUI& Engine::getbackGroundUI()
+{
+    return backgroundUI;
 }

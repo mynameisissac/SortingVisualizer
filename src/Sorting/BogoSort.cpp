@@ -25,7 +25,7 @@ void BogoSort::shuffleArray(int* arr, int size)
     }
 }
 
-void BogoSort::sort(BackGroundUI& backGroundUi)
+bool BogoSort::sort(BackGroundUI& backGroundUi)
 {
 
 }

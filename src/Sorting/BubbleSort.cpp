@@ -9,12 +9,8 @@ BubbleSort::BubbleSort(Array<int>& arrayToSort)
 {}
 
 
-void BubbleSort::sort(BackGroundUI& backGroundUi)
+bool BubbleSort::sort(BackGroundUI& backGroundUi)
 {
-    static bool oneCycleFinished = false;
-
-    if (oneCycleFinished)
-        return;
 
     for (int i=0; i < arrayToSort.getSize() - 1 ; ++i)
         for (int j=0; j < arrayToSort.getSize() - 1 - i; ++j){
@@ -27,8 +23,7 @@ void BubbleSort::sort(BackGroundUI& backGroundUi)
             backGroundUi.draw("0");        // draw all the backGround elements and display the screen
         }
 
-    oneCycleFinished = true;
-
+    return true;    // successfully finished sorting
 }
 
 

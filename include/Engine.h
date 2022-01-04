@@ -38,14 +38,18 @@ class Engine {
         // owns sorting algorithm for performing sorting
         SortingAlgorithm* sortProcess1;          // cannot construct an abstract base class type class object
 
+        //declaration of friend function: handleInput()
+        friend void handleInput(Engine& engine);
+
     public:
         explicit Engine(int sizeOfArray);      // conversion constructor
         ~Engine();
 
-        void handleInput();
-
         // the main loop of the program
         void run();
+
+        // accessors
+        BackGroundUI& getbackGroundUI();
 
 };
 

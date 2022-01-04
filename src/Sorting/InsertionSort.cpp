@@ -39,6 +39,24 @@ bool InsertionSort::sortOneIteration()
 }
 
 
-void InsertionSort::sort(BackGroundUI& backGroundUi)
+bool InsertionSort::sort(BackGroundUI& backGroundUi)
 {
+    for (int i=1; i < arrayToSort.getSize(); ++i)
+        for (int j = i - 1; j >= 0; --j) {
+
+            // if the position to insert is found
+            if (arrayToSort.getArrayPointer()[j + 1] > arrayToSort.getArrayPointer()[j])
+                break;
+            else
+                arrayToSort.swap(j, j + 1);            // swap while searching position to insert
+
+            // draw the array
+            arrayToSort.draw(backGroundUi.getWindow());
+            backGroundUi.draw("0");        // draw all the backGround elements and display the screen
+
+
+
+        }
+
+    return true;
 }

@@ -42,7 +42,7 @@ bool SelectionSort::sortOneIteration()
     return true;        // whole sorting is finished
 }
 
-void SelectionSort::sort(BackGroundUI& backGroundUi)
+bool SelectionSort::sort(BackGroundUI& backGroundUi)
 {
 
 }
