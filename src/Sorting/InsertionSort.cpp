@@ -41,6 +41,10 @@ bool InsertionSort::sortOneIteration()
 
 bool InsertionSort::sort(BackGroundUI& backGroundUi)
 {
+    static bool sortingFinished = false;    // to prevent the sorting run on sorted array
+    if (sortingFinished)
+        return true;
+
     for (int i=1; i < arrayToSort.getSize(); ++i)
         for (int j = i - 1; j >= 0; --j) {
 
@@ -50,13 +54,11 @@ bool InsertionSort::sort(BackGroundUI& backGroundUi)
             else
                 arrayToSort.swap(j, j + 1);            // swap while searching position to insert
 
-            // draw the array
+            // draw the array and background
             arrayToSort.draw(backGroundUi.getWindow());
             backGroundUi.draw("0");        // draw all the backGround elements and display the screen
-
-
-
+            sf::sleep(Time(milliseconds(DELAY_TIME)));
         }
-
-    return true;
+    sortingFinished = true;
+    return sortingFinished;
 }

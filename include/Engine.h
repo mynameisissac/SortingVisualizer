@@ -12,6 +12,7 @@
 #include "Sorting/SelectionSort.h"
 #include "Sorting/BubbleSort.h"
 #include "Sorting/InsertionSort.h"
+#include "Sorting/QuickSort.h"
 
 // the flow of the whole program as an object
 class Engine {
@@ -38,7 +39,7 @@ class Engine {
         // owns sorting algorithm for performing sorting
         SortingAlgorithm* sortProcess1;          // cannot construct an abstract base class type class object
 
-        //declaration of friend function: handleInput()
+        //declaration of friend global function: handleInput(Engine& engine)
         friend void handleInput(Engine& engine);
 
     public:

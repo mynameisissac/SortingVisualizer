@@ -1,0 +1,67 @@
+//
+// Created by kshou on 2022/1/5.
+//
+
+#include "Sorting/QuickSort.h"
+
+QuickSort::QuickSort(Array<int>& arrayToSort)
+    : SortingAlgorithm(arrayToSort)
+{}
+
+
+bool QuickSort::sortOneIteration()
+{
+    return false;
+}
+
+
+bool QuickSort::sort(BackGroundUI& backGroundUi)
+{
+    static bool sortingFinished = false;    // to prevent the sorting run on sorted array
+    if (sortingFinished)
+        return true;
+
+    // call the recursive quickSort()
+    quickSort(0, arrayToSort.getSize() - 1, backGroundUi);
+
+    sortingFinished = true;
+    return sortingFinished;
+}
+
+int QuickSort::partition(int low, int high)
+{
+    int left = low - 1;
+    int right = low;
+    int pivot = arrayToSort.getArrayPointer()[high];      // choose last element as the pivot element
+
+    for (; right < high; ++right)
+        if (arrayToSort.getArrayPointer()[right] < pivot) {
+            // increment left pointer and swap arr[left] and arr[right]
+            ++left;
+            arrayToSort.swap(left, right);      // to move all smaller(than pivot) element to the left
+        }
+
+    arrayToSort.swap(left + 1, high);       // swap arr[left + 1] and arr[high](pivot element)
+
+    return left + 1;        // return the new position of the pivot element
+}
+
+void QuickSort::quickSort(int low, int high, BackGroundUI& backGroundUi)
+{
+    if (low >= high)        // base case
+        return;
+
+    // 3 steps of recursive quickSort()
+    int parted_index = partition(low, high);
+
+    // draw the array and background
+    arrayToSort.draw(backGroundUi.getWindow());
+    backGroundUi.draw("0");        // draw all the backGround elements and display the screen
+    sf::sleep(Time(milliseconds(DELAY_TIME)));
+
+    quickSort(low, parted_index - 1, backGroundUi);
+    quickSort(parted_index + 1, high, backGroundUi);
+
+}
+
+

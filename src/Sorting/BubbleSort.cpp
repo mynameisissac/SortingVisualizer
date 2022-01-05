@@ -11,6 +11,9 @@ BubbleSort::BubbleSort(Array<int>& arrayToSort)
 
 bool BubbleSort::sort(BackGroundUI& backGroundUi)
 {
+    static bool sortingFinished = false;    // to prevent the sorting run on sorted array
+    if (sortingFinished)
+        return true;
 
     for (int i=0; i < arrayToSort.getSize() - 1 ; ++i)
         for (int j=0; j < arrayToSort.getSize() - 1 - i; ++j){
@@ -23,7 +26,8 @@ bool BubbleSort::sort(BackGroundUI& backGroundUi)
             backGroundUi.draw("0");        // draw all the backGround elements and display the screen
         }
 
-    return true;    // successfully finished sorting
+    sortingFinished = true;
+    return sortingFinished;    // successfully finished sorting
 }
 
 

@@ -8,9 +8,13 @@
 #include "SortingAlgorithm.h"
 
 class QuickSort : public SortingAlgorithm{
+    private:
+        // recursive quickSort implementation for sort()
+        int partition(int low, int high);
+        void quickSort(int low, int high, BackGroundUI& backGroundUi);
 
     public:
-        QuickSort(Array<int>& arrayToSort);
+        explicit QuickSort(Array<int>& arrayToSort);
 
         bool sort(BackGroundUI& backGroundUi) override;
 
