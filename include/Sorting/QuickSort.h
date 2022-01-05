@@ -9,8 +9,9 @@
 
 class QuickSort : public SortingAlgorithm{
     private:
+        // partition function will be used for both recursive and iterative quickSort
+        int partition(int low, int high, BackGroundUI& backGroundUi);
         // recursive quickSort implementation for sort()
-        int partition(int low, int high);
         void quickSort(int low, int high, BackGroundUI& backGroundUi);
 
     public:

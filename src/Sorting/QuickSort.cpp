@@ -14,7 +14,6 @@ bool QuickSort::sortOneIteration()
     return false;
 }
 
-
 bool QuickSort::sort(BackGroundUI& backGroundUi)
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
@@ -28,7 +27,8 @@ bool QuickSort::sort(BackGroundUI& backGroundUi)
     return sortingFinished;
 }
 
-int QuickSort::partition(int low, int high)
+// Purpose of partition is to put the pivot element into correct position so that itself become sorted.
+int QuickSort::partition(int low, int high, BackGroundUI& backGroundUi)
 {
     int left = low - 1;
     int right = low;
@@ -39,9 +39,19 @@ int QuickSort::partition(int low, int high)
             // increment left pointer and swap arr[left] and arr[right]
             ++left;
             arrayToSort.swap(left, right);      // to move all smaller(than pivot) element to the left
+
+            // draw the array and background
+            arrayToSort.draw(backGroundUi.getWindow());
+            backGroundUi.draw("0");        // draw all the backGround elements and display the screen
+            sf::sleep(Time(milliseconds(DELAY_TIME)));
         }
 
     arrayToSort.swap(left + 1, high);       // swap arr[left + 1] and arr[high](pivot element)
+
+    // draw the array and background
+    arrayToSort.draw(backGroundUi.getWindow());
+    backGroundUi.draw("0");        // draw all the backGround elements and display the screen
+    sf::sleep(Time(milliseconds(DELAY_TIME)));
 
     return left + 1;        // return the new position of the pivot element
 }
@@ -52,13 +62,7 @@ void QuickSort::quickSort(int low, int high, BackGroundUI& backGroundUi)
         return;
 
     // 3 steps of recursive quickSort()
-    int parted_index = partition(low, high);
-
-    // draw the array and background
-    arrayToSort.draw(backGroundUi.getWindow());
-    backGroundUi.draw("0");        // draw all the backGround elements and display the screen
-    sf::sleep(Time(milliseconds(DELAY_TIME)));
-
+    int parted_index = partition(low, high, backGroundUi);
     quickSort(low, parted_index - 1, backGroundUi);
     quickSort(parted_index + 1, high, backGroundUi);
 
