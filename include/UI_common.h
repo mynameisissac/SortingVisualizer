@@ -6,7 +6,7 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static int SizeOfArray = 30;            // <-- change this number to test with different size of arrays
+static int SizeOfArray = 100;            // <-- change this number to test with different size of arrays
 
 // ui-related common constants and static variables
 // background color
@@ -44,6 +44,6 @@ static sf::Color arrayColor(66,66,66);         // grey
 static sf::Color arrayHighlightColor(255, 193, 7);       // yellow
 
 // control the small suspend time between each iteration/comparison
-const int DELAY_TIME = 100;       // unit: milliseconds
+const int DELAY_TIME = 0;       // unit: milliseconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H

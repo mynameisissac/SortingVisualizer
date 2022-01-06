@@ -31,7 +31,7 @@ void PauseButton::onClick()
 
 }
 
-bool PauseButton::getFreezeFlag()
+bool PauseButton::isPaused()
 {
     return freezeFlag;
 }

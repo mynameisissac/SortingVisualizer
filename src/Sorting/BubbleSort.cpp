@@ -9,7 +9,7 @@ BubbleSort::BubbleSort(Array<int>& arrayToSort)
 {}
 
 
-bool BubbleSort::sort(BackGroundUI& backGroundUi)
+bool BubbleSort::sort(Engine& engine)
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
     if (sortingFinished)
@@ -21,9 +21,9 @@ bool BubbleSort::sort(BackGroundUI& backGroundUi)
             if (arrayToSort.getArrayPointer()[j + 1] < arrayToSort.getArrayPointer()[j])
                 arrayToSort.swap(j, j + 1);
 
-            // draw the array after each iteration
+            /*// draw the array after each iteration
             arrayToSort.draw(backGroundUi.getWindow());
-            backGroundUi.draw("0");        // draw all the backGround elements and display the screen
+            backGroundUi.draw("0");        // draw all the backGround elements and display the screen*/
         }
 
     sortingFinished = true;

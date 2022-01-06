@@ -19,7 +19,7 @@ class BubbleSort : public SortingAlgorithm{
 
         bool sortOneIteration() override;
 
-        bool sort(BackGroundUI& backGroundUi) override;
+        bool sort(Engine& engine) override;
 };
 
 

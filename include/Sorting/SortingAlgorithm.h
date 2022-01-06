@@ -8,6 +8,8 @@
 #include "Array.h"
 #include "BackGroundUI.h"
 
+class Engine;       // forward declaration
+
 // TODO : change to template?
 // abstract base class for all sorting algorithms
 class SortingAlgorithm {
@@ -19,7 +21,7 @@ class SortingAlgorithm {
         explicit SortingAlgorithm(Array<int>& arrayToSort);     // constructor
         virtual ~SortingAlgorithm();        // destructor
 
-        virtual bool sort(BackGroundUI& backGroundUi) = 0;
+        virtual bool sort(Engine& engine) = 0;
 
         // pure virtual function for performing the sorting of one iteration
         // it returns true if whole sorting process is finished

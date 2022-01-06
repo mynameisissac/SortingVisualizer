@@ -10,14 +10,14 @@
 class QuickSort : public SortingAlgorithm{
     private:
         // partition function will be used for both recursive and iterative quickSort
-        int partition(int low, int high, BackGroundUI& backGroundUi);
+        int partition(int low, int high, Engine& engine);
         // recursive quickSort implementation for sort()
-        void quickSort(int low, int high, BackGroundUI& backGroundUi);
+        void quickSort(int low, int high, Engine& engine);
 
     public:
         explicit QuickSort(Array<int>& arrayToSort);
 
-        bool sort(BackGroundUI& backGroundUi) override;
+        bool sort(Engine& engine) override;
 
         bool sortOneIteration() override;
 

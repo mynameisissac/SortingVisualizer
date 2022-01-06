@@ -17,7 +17,7 @@ class PauseButton : public Button{
     public:
         PauseButton(const sf::Vector2f& size, const sf::Vector2f& position);
         // accessor
-        static bool getFreezeFlag();
+        static bool isPaused();
 
         void onClick() override;
 };

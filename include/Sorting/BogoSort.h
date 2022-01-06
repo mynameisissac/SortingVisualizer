@@ -18,7 +18,7 @@ class BogoSort : public SortingAlgorithm {
 
         bool sortOneIteration() override;
 
-        bool sort(BackGroundUI& backGroundUi) override;       // TODO
+        bool sort(Engine& engine) override;       // TODO
 };
 
 

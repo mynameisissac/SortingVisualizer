@@ -46,6 +46,8 @@ class Engine {
         explicit Engine(int sizeOfArray);      // conversion constructor
         ~Engine();
 
+        void draw();
+
         // the main loop of the program
         void run();
 

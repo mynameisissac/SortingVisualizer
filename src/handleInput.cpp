@@ -33,10 +33,10 @@ void handleInput(Engine& engine)
 
             // key P for pausing the sorting process
             if (!engine.finished && event.key.code == Keyboard::P) {
-                std::cout << ( PauseButton::getFreezeFlag() ? "Resume" : "Pause" ) << std::endl;
+                std::cout << (PauseButton::isPaused() ? "Resume" : "Pause" ) << std::endl;
 
                 // if not paused before pressing
-                if (!PauseButton::getFreezeFlag())
+                if (!PauseButton::isPaused())
                     engine.stopWatchOffSet += engine.clock.restart().asSeconds();
                 else    // if paused before
                     engine.clock.restart();
@@ -57,10 +57,10 @@ void handleInput(Engine& engine)
             if (!engine.finished && engine.sideBar.getPauseButton().isHovering(engine.window)){
                 // pressing mouse left on the button
                 if (Mouse::isButtonPressed(Mouse::Left)){
-                    std::cout << ( PauseButton::getFreezeFlag() ? "Resume" : "Pause" ) << std::endl;
+                    std::cout << (PauseButton::isPaused() ? "Resume" : "Pause" ) << std::endl;
 
                     // if not paused before pressing
-                    if (!PauseButton::getFreezeFlag())
+                    if (!PauseButton::isPaused())
                         engine.stopWatchOffSet += engine.clock.restart().asSeconds();
                     else    // if paused before
                         engine.clock.restart();

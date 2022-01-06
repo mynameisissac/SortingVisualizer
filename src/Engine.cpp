@@ -52,18 +52,18 @@ void Engine::run()
 
         handleInput(*this);
 
-        /*if (!PauseButton::getFreezeFlag() && !finished){
+        /*if (!PauseButton::isPaused() && !finished){
             arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
             backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             finished = sortProcess1->sortOneIteration();        // TODO: add more sorting algorithms
             sf::sleep(Time(milliseconds(DELAY_TIME)));
         }*/
 
-        finished = sortProcess1->sort(backgroundUI);         // TODO: VERY future
+        finished = sortProcess1->sort(*this);         // TODO: VERY future
 
         static bool sayOnce = true;                 //prevent printing "sorting finished." too many times
         if (finished && sayOnce) {
-            std::cout << "sorting finished." << std::endl;
+            std::cout << "Sorting finished." << std::endl;
             sayOnce = false;
         }
         
@@ -79,4 +79,11 @@ Engine::~Engine()
 BackGroundUI& Engine::getbackGroundUI()
 {
     return backgroundUI;
+}
+
+void Engine::draw()
+{
+    arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
+    backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
+    sf::sleep(Time(milliseconds(DELAY_TIME)));
 }
