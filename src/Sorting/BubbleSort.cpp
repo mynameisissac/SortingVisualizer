@@ -3,6 +3,7 @@
 //
 
 #include "Sorting/BubbleSort.h"
+#include "Engine.h"
 
 BubbleSort::BubbleSort(Array<int>& arrayToSort, Engine* engine)
     : SortingAlgorithm(arrayToSort, engine), counterInnerLoop(0), counterOuterLoop(0)
@@ -21,9 +22,7 @@ bool BubbleSort::sort()
             if (arrayToSort.getArrayPointer()[j + 1] < arrayToSort.getArrayPointer()[j])
                 arrayToSort.swap(j, j + 1);
 
-            /*// draw the array after each iteration
-            arrayToSort.draw(backGroundUi.getWindow());
-            backGroundUi.draw("0");        // draw all the backGround elements and display the screen*/
+            engine->uiProccess();
         }
 
     sortingFinished = true;

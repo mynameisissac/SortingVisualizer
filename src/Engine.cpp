@@ -30,7 +30,7 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new QuickSort(arrayToSort, this);          // choose a sorting algorithm here
+    sortProcess1 = new InsertionSort(arrayToSort, this);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");
@@ -69,7 +69,6 @@ void Engine::run()
         
     }
 }
-
 
 Engine::~Engine()
 {

@@ -3,6 +3,7 @@
 //
 
 #include "Sorting/InsertionSort.h"
+#include "Engine.h"
 
 InsertionSort::InsertionSort(Array<int>& arrayToSort, Engine* engine)
     : SortingAlgorithm(arrayToSort, engine), stage(1), searchingStage(stage - 1), found(false)
@@ -54,11 +55,13 @@ bool InsertionSort::sort()
             else
                 arrayToSort.swap(j, j + 1);            // swap while searching position to insert
 
-            /*// draw the array and background
-            arrayToSort.draw(backGroundUi.getWindow());
-            backGroundUi.draw("0");        // draw all the backGround elements and display the screen
-            sf::sleep(Time(milliseconds(DELAY_TIME)));*/
+            // highlighting
+            arrayToSort.getRecArrPointer()[j].setFillColor(arrayHighlightColor);
+            engine->uiProccess();
+            // restore its color
+            arrayToSort.getRecArrPointer()[j].setFillColor(arrayColor);
         }
+
     sortingFinished = true;
     return sortingFinished;
 }
