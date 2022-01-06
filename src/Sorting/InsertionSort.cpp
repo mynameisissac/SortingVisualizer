@@ -4,8 +4,8 @@
 
 #include "Sorting/InsertionSort.h"
 
-InsertionSort::InsertionSort(Array<int>& arrayToSort)
-    : SortingAlgorithm(arrayToSort), stage(1), searchingStage(stage - 1), found(false)
+InsertionSort::InsertionSort(Array<int>& arrayToSort, Engine* engine)
+    : SortingAlgorithm(arrayToSort, engine), stage(1), searchingStage(stage - 1), found(false)
 {}
 
 bool InsertionSort::sortOneIteration()
@@ -39,7 +39,7 @@ bool InsertionSort::sortOneIteration()
 }
 
 
-bool InsertionSort::sort(Engine& engine)
+bool InsertionSort::sort()
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
     if (sortingFinished)

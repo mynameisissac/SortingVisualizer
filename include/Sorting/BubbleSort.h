@@ -15,11 +15,11 @@ class BubbleSort : public SortingAlgorithm{
         int counterInnerLoop;
 
     public:
-        explicit BubbleSort(Array<int>& arrayToSort);    // constructor
+        explicit BubbleSort(Array<int>& arrayToSort, Engine* engine);    // constructor
 
         bool sortOneIteration() override;
 
-        bool sort(Engine& engine) override;
+        bool sort() override;
 };
 
 

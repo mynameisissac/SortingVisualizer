@@ -6,8 +6,8 @@
 #include <cstdlib>
 
 // constructor
-BogoSort::BogoSort(Array<int>& arrayToSort)
-    : SortingAlgorithm(arrayToSort)
+BogoSort::BogoSort(Array<int>& arrayToSort, Engine* engine)
+    : SortingAlgorithm(arrayToSort, engine)
 {}
 
 
@@ -25,7 +25,7 @@ void BogoSort::shuffleArray(int* arr, int size)
     }
 }
 
-bool BogoSort::sort(Engine& engine)
+bool BogoSort::sort()
 {
 
 }

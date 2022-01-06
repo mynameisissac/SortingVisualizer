@@ -4,12 +4,12 @@
 
 #include "Sorting/BubbleSort.h"
 
-BubbleSort::BubbleSort(Array<int>& arrayToSort)
-    : SortingAlgorithm(arrayToSort), counterInnerLoop(0), counterOuterLoop(0)
+BubbleSort::BubbleSort(Array<int>& arrayToSort, Engine* engine)
+    : SortingAlgorithm(arrayToSort, engine), counterInnerLoop(0), counterOuterLoop(0)
 {}
 
 
-bool BubbleSort::sort(Engine& engine)
+bool BubbleSort::sort()
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
     if (sortingFinished)

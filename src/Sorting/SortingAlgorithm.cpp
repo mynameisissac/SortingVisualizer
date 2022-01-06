@@ -5,8 +5,9 @@
 #include "Sorting/SortingAlgorithm.h"
 
 
-SortingAlgorithm::SortingAlgorithm(Array<int>& arrayToSort)
-    : arrayToSort(arrayToSort)              // perform shallow copy of the array object
-{}
+SortingAlgorithm::SortingAlgorithm(Array<int>& arrayToSort, Engine* engine)
+    : arrayToSort(arrayToSort)            // perform shallow copy of the array object
+        , engine(engine)
+    {}
 
 SortingAlgorithm::~SortingAlgorithm() = default;

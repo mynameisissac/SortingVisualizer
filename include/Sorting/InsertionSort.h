@@ -17,9 +17,9 @@ class InsertionSort : public SortingAlgorithm{
         bool found;
 
     public:
-        explicit InsertionSort(Array<int>& arrayToSort);
+        explicit InsertionSort(Array<int>& arrayToSort, Engine* engine);
 
-        bool sort(Engine& engine) override;
+        bool sort() override;
 
         bool sortOneIteration() override;
 

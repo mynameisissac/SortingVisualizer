@@ -6,46 +6,46 @@
 #include <iostream>
 using namespace sf;
 
-void handleInput(Engine& engine)
+void Engine::handleInput()
 {
     std::string setPrecisionToString(float floatNum, int n);        // declaration
 
     Event event{};
 
     // event listening loop
-    while (engine.window.pollEvent(event)) {
+    while (window.pollEvent(event)) {
 
         // closing window (clicking on the x)
         if (event.type == Event::Closed){
             std::cout << "Closing window" << std::endl;
-            engine.window.close();
+            window.close();
         }
 
         // real time event listener
         // that means the condition will be checked at any time
         if (Keyboard::isKeyPressed(Keyboard::Escape)){
             std::cout << "Closing window" << std::endl;
-            engine.window.close();
+            window.close();
         }
 
         // keyboard event
         if (event.type == Event::KeyPressed){
 
             // key P for pausing the sorting process
-            if (!engine.finished && event.key.code == Keyboard::P) {
+            if (!finished && event.key.code == Keyboard::P) {
                 std::cout << (PauseButton::isPaused() ? "Resume" : "Pause" ) << std::endl;
 
                 // if not paused before pressing
                 if (!PauseButton::isPaused())
-                    engine.stopWatchOffSet += engine.clock.restart().asSeconds();
+                    stopWatchOffSet += clock.restart().asSeconds();
                 else    // if paused before
-                    engine.clock.restart();
+                    clock.restart();
 
-                engine.sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
+                sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
 
                 // draw again to display the changed texture
-                engine.arrayToSort.draw(engine.window);
-                engine.backgroundUI.draw(setPrecisionToString((engine.clock.getElapsedTime().asSeconds() + engine.stopWatchOffSet), 2));
+                arrayToSort.draw(window);
+                backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             }
 
         }
@@ -54,22 +54,22 @@ void handleInput(Engine& engine)
         if (event.type == Event::MouseButtonPressed){               // clicking
 
             // if mouse enter the region of pause button
-            if (!engine.finished && engine.sideBar.getPauseButton().isHovering(engine.window)){
+            if (!finished && sideBar.getPauseButton().isHovering(window)){
                 // pressing mouse left on the button
                 if (Mouse::isButtonPressed(Mouse::Left)){
                     std::cout << (PauseButton::isPaused() ? "Resume" : "Pause" ) << std::endl;
 
                     // if not paused before pressing
                     if (!PauseButton::isPaused())
-                        engine.stopWatchOffSet += engine.clock.restart().asSeconds();
+                        stopWatchOffSet += clock.restart().asSeconds();
                     else    // if paused before
-                        engine.clock.restart();
+                        clock.restart();
 
-                    engine.sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
+                    sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
 
                     // draw again to display the changed texture
-                    engine.arrayToSort.draw(engine.window);
-                    engine.backgroundUI.draw(setPrecisionToString((engine.clock.getElapsedTime().asSeconds() + engine.stopWatchOffSet), 2));
+                    arrayToSort.draw(window);
+                    backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
                 }
             }
 

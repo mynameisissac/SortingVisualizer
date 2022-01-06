@@ -6,7 +6,7 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static int SizeOfArray = 100;            // <-- change this number to test with different size of arrays
+static int SizeOfArray = 1000;            // <-- change this number to test with different size of arrays
 
 // ui-related common constants and static variables
 // background color

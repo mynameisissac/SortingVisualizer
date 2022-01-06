@@ -11,14 +11,14 @@
 class BogoSort : public SortingAlgorithm {
 
     public:
-        explicit BogoSort(Array<int>& arrayToSort);
+        explicit BogoSort(Array<int>& arrayToSort, Engine* engine);
 
         // this shuffleArray function can be reused by class members and others classes
         static void shuffleArray(int* arr, int size);
 
         bool sortOneIteration() override;
 
-        bool sort(Engine& engine) override;       // TODO
+        bool sort() override;       // TODO
 };
 
 

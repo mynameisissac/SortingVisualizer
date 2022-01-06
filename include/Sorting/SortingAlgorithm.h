@@ -16,12 +16,14 @@ class SortingAlgorithm {
     protected:
         // a reference to the array object to be sorted
         Array<int>& arrayToSort;
+        // point to the engine that owns this SortingAlgorithm
+        Engine* engine;
 
     public:
-        explicit SortingAlgorithm(Array<int>& arrayToSort);     // constructor
+        explicit SortingAlgorithm(Array<int>& arrayToSort, Engine* engine);     // constructor
         virtual ~SortingAlgorithm();        // destructor
 
-        virtual bool sort(Engine& engine) = 0;
+        virtual bool sort() = 0;
 
         // pure virtual function for performing the sorting of one iteration
         // it returns true if whole sorting process is finished

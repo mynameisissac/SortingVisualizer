@@ -17,11 +17,11 @@ class SelectionSort : public SortingAlgorithm{
         int currentMinIndex;
 
     public:
-        explicit SelectionSort(Array<int>& arrayToSort);    // constructor
+        explicit SelectionSort(Array<int>& arrayToSort, Engine* engine);    // constructor
 
         bool sortOneIteration() override;
 
-        bool sort(Engine& engine) override;
+        bool sort() override;
 };
 
 

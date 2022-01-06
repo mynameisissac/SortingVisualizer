@@ -30,7 +30,7 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new QuickSort(arrayToSort);          // choose a sorting algorithm here
+    sortProcess1 = new QuickSort(arrayToSort, this);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");
@@ -50,7 +50,7 @@ void Engine::run()
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
 
-        handleInput(*this);
+        handleInput();
 
         /*if (!PauseButton::isPaused() && !finished){
             arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
@@ -59,7 +59,7 @@ void Engine::run()
             sf::sleep(Time(milliseconds(DELAY_TIME)));
         }*/
 
-        finished = sortProcess1->sort(*this);         // TODO: VERY future
+        finished = sortProcess1->sort();         // TODO: Implement all
 
         static bool sayOnce = true;                 //prevent printing "sorting finished." too many times
         if (finished && sayOnce) {
@@ -86,4 +86,17 @@ void Engine::draw()
     arrayToSort.draw(window);            // draw the array out after each iteration of the sorting algorithm
     backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
     sf::sleep(Time(milliseconds(DELAY_TIME)));
+}
+
+void Engine::pausing()
+{
+    while(PauseButton::isPaused())
+        handleInput();      // until resume
+}
+
+void Engine::uiProccess()
+{
+    handleInput();
+    draw();
+    pausing();
 }

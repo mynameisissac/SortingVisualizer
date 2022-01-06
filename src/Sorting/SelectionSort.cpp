@@ -5,8 +5,8 @@
 #include "Sorting/SelectionSort.h"
 
 
-SelectionSort::SelectionSort(Array<int>& arrayToSort)
-    : SortingAlgorithm(arrayToSort), stage(0), searchingStage(1), currentMinIndex(0)
+SelectionSort::SelectionSort(Array<int>& arrayToSort,  Engine* engine)
+    : SortingAlgorithm(arrayToSort, engine), stage(0), searchingStage(1), currentMinIndex(0)
 {}
 
 
@@ -42,7 +42,7 @@ bool SelectionSort::sortOneIteration()
     return true;        // whole sorting is finished
 }
 
-bool SelectionSort::sort(Engine& engine)
+bool SelectionSort::sort()
 {
 
 }
