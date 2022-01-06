@@ -13,17 +13,22 @@ BubbleSort::BubbleSort(Array<int>& arrayToSort, Engine* engine)
 bool BubbleSort::sort()
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
-    if (sortingFinished)
+    if (sortingFinished || engine->windowIsClosed())
         return true;
 
-    for (int i=0; i < arrayToSort.getSize() - 1 ; ++i)
-        for (int j=0; j < arrayToSort.getSize() - 1 - i; ++j){
+    for (int i=0; i < arrayToSort.getSize() - 1 ; ++i) {
+        // prevent continue sorting after closing window
+        if (engine->windowIsClosed())
+            break;
+
+        for (int j = 0; j < arrayToSort.getSize() - 1 - i; ++j) {
 
             if (arrayToSort.getArrayPointer()[j + 1] < arrayToSort.getArrayPointer()[j])
                 arrayToSort.swap(j, j + 1);
 
             engine->uiProcess();
         }
+    }
 
     sortingFinished = true;
     return sortingFinished;    // successfully finished sorting

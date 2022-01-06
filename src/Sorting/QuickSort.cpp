@@ -55,9 +55,8 @@ int QuickSort::partition(int low, int high)
 
 void QuickSort::quickSort(int low, int high)
 {
-    if (engine->windowIsClosed()) {   // base case to escape
+    if (engine->windowIsClosed())  // base case to escape after window is closed
         return;
-    }
     if (low >= high)        // base case
         return;
 

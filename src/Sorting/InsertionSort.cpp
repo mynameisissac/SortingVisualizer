@@ -43,16 +43,15 @@ bool InsertionSort::sortOneIteration()
 bool InsertionSort::sort()
 {
     static bool sortingFinished = false;    // to prevent the sorting run on sorted array
-    if (sortingFinished)
+    if (sortingFinished || engine->windowIsClosed())
         return true;
 
-    for (int i=1; i < arrayToSort.getSize(); ++i)
+    for (int i=1; i < arrayToSort.getSize(); ++i) {
+        // prevent continue sorting after closing window
+        if (engine->windowIsClosed())
+            break;
+
         for (int j = i - 1; j >= 0; --j) {
-
-            if (engine->windowIsClosed()) {   // prevent continue sorting after closing window
-                break;
-            }
-
             // if the position to insert is found
             if (arrayToSort.getArrayPointer()[j + 1] > arrayToSort.getArrayPointer()[j])
                 break;
@@ -65,6 +64,9 @@ bool InsertionSort::sort()
             // restore its color
             arrayToSort.getRecArrPointer()[j].setFillColor(arrayColor);
         }
+    }
+
+    engine->uiProcess();
 
     sortingFinished = true;
     return sortingFinished;

@@ -30,7 +30,7 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new InsertionSort(arrayToSort, this);          // choose a sorting algorithm here
+    sortProcess1 = new SelectionSort(arrayToSort, this);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");
@@ -89,7 +89,7 @@ void Engine::draw()
 
 void Engine::pausing()
 {
-    while(PauseButton::isPaused())
+    while(PauseButton::isPaused() && window.isOpen())       // prevent program not terminating when closing with paused
         handleInput();      // until resume
 }
 
