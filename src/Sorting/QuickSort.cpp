@@ -42,19 +42,22 @@ int QuickSort::partition(int low, int high)
             arrayToSort.swap(left, right);      // to move all smaller(than pivot) element to the left
 
             // draw the array and handleInput
-            engine->uiProccess();
+            engine->uiProcess();
         }
 
     arrayToSort.swap(left + 1, high);       // swap arr[left + 1] and arr[high](pivot element)
 
     // draw the array and handleInput
-    engine->uiProccess();
+    engine->uiProcess();
 
     return left + 1;        // return the new position of the pivot element
 }
 
 void QuickSort::quickSort(int low, int high)
 {
+    if (engine->windowIsClosed()) {   // base case to escape
+        return;
+    }
     if (low >= high)        // base case
         return;
 

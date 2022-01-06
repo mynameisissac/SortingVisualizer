@@ -49,7 +49,9 @@ class Engine {
         ~Engine();
 
         // basic flow of handleInput, draw, display, clear, check pausing
-        void uiProccess();
+        void uiProcess();
+
+        bool windowIsClosed() const;
 
         // the main loop of the program
         void run();

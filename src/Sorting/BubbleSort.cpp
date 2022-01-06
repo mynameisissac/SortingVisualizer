@@ -22,7 +22,7 @@ bool BubbleSort::sort()
             if (arrayToSort.getArrayPointer()[j + 1] < arrayToSort.getArrayPointer()[j])
                 arrayToSort.swap(j, j + 1);
 
-            engine->uiProccess();
+            engine->uiProcess();
         }
 
     sortingFinished = true;

@@ -20,7 +20,6 @@ class QuickSort : public SortingAlgorithm{
         bool sort() override;
 
         bool sortOneIteration() override;
-
 };
 
 

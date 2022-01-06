@@ -93,9 +93,16 @@ void Engine::pausing()
         handleInput();      // until resume
 }
 
-void Engine::uiProccess()
+void Engine::uiProcess()
 {
-    handleInput();
-    draw();
-    pausing();
+    if (window.isOpen()) {
+        handleInput();
+        draw();
+        pausing();
+    }
+}
+
+bool Engine::windowIsClosed() const
+{
+    return !window.isOpen();
 }

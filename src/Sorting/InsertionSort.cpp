@@ -49,6 +49,10 @@ bool InsertionSort::sort()
     for (int i=1; i < arrayToSort.getSize(); ++i)
         for (int j = i - 1; j >= 0; --j) {
 
+            if (engine->windowIsClosed()) {   // prevent continue sorting after closing window
+                break;
+            }
+
             // if the position to insert is found
             if (arrayToSort.getArrayPointer()[j + 1] > arrayToSort.getArrayPointer()[j])
                 break;
@@ -57,7 +61,7 @@ bool InsertionSort::sort()
 
             // highlighting
             arrayToSort.getRecArrPointer()[j].setFillColor(arrayHighlightColor);
-            engine->uiProccess();
+            engine->uiProcess();
             // restore its color
             arrayToSort.getRecArrPointer()[j].setFillColor(arrayColor);
         }
