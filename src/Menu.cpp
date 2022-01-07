@@ -17,5 +17,6 @@ void Menu::draw(sf::RenderWindow& window)
 // destructor for Button array
 Menu::~Menu()
 {
-    delete [] selectionList;
+    for(auto & i : selectionList)
+        delete i;
 }

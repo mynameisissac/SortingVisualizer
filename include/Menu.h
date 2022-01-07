@@ -10,12 +10,13 @@ class Menu {
     private:
         // Selecting sorting algorithm part
         // total number of items for selection
-        const int TOTAL = 5;
+        static const int TOTAL = 5;
         // store the currently selected item index
         int selectedItemIndex;
 
-        // a pointer to an array of Buttons that each button represent a choice
-        Button* selectionList;
+        // an array of pointers to Button that each button represent a choice
+        // the menu owns all the selection buttons
+        Button* selectionList[TOTAL];
 
     public:
         Menu();
