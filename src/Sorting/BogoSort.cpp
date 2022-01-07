@@ -3,6 +3,7 @@
 //
 
 #include "Sorting/BogoSort.h"
+#include "Engine.h"
 #include <cstdlib>
 
 // constructor
@@ -27,13 +28,23 @@ void BogoSort::shuffleArray(int* arr, int size)
 
 bool BogoSort::sort()
 {
+    static bool sortingFinished = false;    // to prevent the sorting run on sorted array
+    if (sortingFinished || engine->windowIsClosed())
+        return true;
 
+    while (!arrayToSort.sorted() && !engine->windowIsClosed()){
+        shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());
+        // draw the output
+        engine->uiProcess();
+    }
+
+    sortingFinished = true;
+    return sortingFinished;
 }
 
 
 bool BogoSort::sortOneIteration()
 {
-    // TODO: optimize the shuffling portion
     // shuffle the array once if not sorted
     if (!arrayToSort.sorted()) {
         shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());
