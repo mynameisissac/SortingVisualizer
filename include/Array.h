@@ -179,7 +179,7 @@ void Array<T>::draw(sf::RenderWindow& window)
 
 template <typename T>
 Array<T>::Array(const Array& that)
-    : arr(nullptr), representation(nullptr)
+    : arr(nullptr), representation(nullptr), size(0)
 {
     *this = that;       // call the overloaded operator=
 }
