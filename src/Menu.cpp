@@ -75,18 +75,6 @@ void Menu::handleInput(bool& selected, bool& arraySizeValid)
 
     // event listening loop
     while (engine->window.pollEvent(event)) {
-        // closing window (clicking on the x)
-        if (event.type == Event::Closed){
-            std::cout << "Closing window" << std::endl;
-            engine->window.close();
-        }
-
-        // real time event listener
-        // that means the condition will be checked at any time
-        if (Keyboard::isKeyPressed(Keyboard::Escape)){
-            std::cout << "Closing window" << std::endl;
-            engine->window.close();
-        }
 
         if (event.type == Event::MouseMoved) {
             // check the selection list buttons and confirmation button
