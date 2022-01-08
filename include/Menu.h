@@ -6,6 +6,7 @@
 #define SORTINGVISUALIZER_MENU_H
 
 #include "Button/SelectionButton.h"
+#include "Button/ConfirmButton.h"
 
 // forward declaration of Engine
 class Engine;
@@ -25,7 +26,7 @@ class Menu {
         SelectionButton* selectionList[TOTAL];
 
         // confirm button
-        Button* confirmButton;
+        ConfirmButton* confirmButton;
         // pointer of the engine the possessed this menu
         Engine* engine;
 

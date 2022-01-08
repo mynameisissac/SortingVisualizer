@@ -24,6 +24,13 @@ const float SELECTION_BUTTON_HEIGHT = (float) WINDOW_HEIGHT / 9.18f;
 // position of the top-left corner of selection menu(i.e. first selection button)
 const float MENU_SELECTION_POSITION_X = (float) WINDOW_WIDTH * 2 / 8;
 const float MENU_SELECTION_POSITION_Y = SELECTION_BUTTON_HEIGHT * 2.5f;
+// dimension of confirmation button
+const float CONFIRM_BUTTON_WIDTH = (float) WINDOW_WIDTH / 7.6f;
+const float CONFIRM_BUTTON_HEIGHT = (float) WINDOW_HEIGHT / 7.2f;
+// position of top-left corner of confirmation button in the starting menu
+const float MENU_CONFIRM_POSITION_X = (float) WINDOW_WIDTH * 5 / 8;
+const float MENU_CONFIRM_POSITION_Y = MENU_SELECTION_POSITION_Y + 5 * SELECTION_BUTTON_HEIGHT
+                                        - CONFIRM_BUTTON_HEIGHT;      // to make it align with last selection button
 
 // the dimension of the region to display the sorting process
 const float DISPLAY_WIDTH = 1500.0f;

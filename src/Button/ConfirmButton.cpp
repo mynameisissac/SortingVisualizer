@@ -41,3 +41,8 @@ void ConfirmButton::resetTexture()
     if (display.getTexture() == &hoveringTexture)
         setTexture(&normalTexture);
 }
+
+void ConfirmButton::reset()
+{
+    confirmed = false;
+}

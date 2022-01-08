@@ -8,13 +8,18 @@ SelectionButton::SelectionButton(const sf::Vector2f& size, const sf::Vector2f& p
     : Button(size, position), choiceIndex(choiceIndex)
 {
     // load the normal texture and set it to the button
-    std::string textureFilename = "../assets/menuSelectionList/menu_selection_" + std::to_string(choiceIndex) + "_normal.png";
+    std::string textureFilename = "../assets/menu/menu_selection_" + std::to_string(choiceIndex) + "_normal.png";
     if (!normalTexture.loadFromFile(textureFilename))
         throw std::runtime_error("cannot load texture of menu selection button!");
 
     // load the hovering texture
-    textureFilename = "../assets/menuSelectionList/menu_selection_" + std::to_string(choiceIndex) + "_hovering.png";
+    textureFilename = "../assets/menu/menu_selection_" + std::to_string(choiceIndex) + "_hovering.png";
     if (!hoveringTexture.loadFromFile(textureFilename))
+        throw std::runtime_error("cannot load texture of menu selection button!");
+
+    // load the selected texture
+    textureFilename = "../assets/menu/menu_selection_" + std::to_string(choiceIndex) + "_selected.png";
+    if (!selectedTexture.loadFromFile(textureFilename))
         throw std::runtime_error("cannot load texture of menu selection button!");
 
     setTexture(&normalTexture);
@@ -23,16 +28,24 @@ SelectionButton::SelectionButton(const sf::Vector2f& size, const sf::Vector2f& p
 
 void SelectionButton::onClick()
 {
+    // change the texture
+    if (beingSelected)
+        setTexture(&normalTexture);
+    else
+        setTexture(&selectedTexture);
 
+    // reverse the flag of being selected
+    beingSelected = !beingSelected;
 }
 
 void SelectionButton::onHovering()
 {
-    setTexture(&hoveringTexture);
+    if (!beingSelected)
+        setTexture(&hoveringTexture);
 }
 
 void SelectionButton::resetTexture()
 {
-    if (display.getTexture() == &hoveringTexture)
+    if (!beingSelected && display.getTexture() == &hoveringTexture)
         setTexture(&normalTexture);
 }

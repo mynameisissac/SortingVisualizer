@@ -17,6 +17,7 @@ class SelectionButton : public Button{
         // textures when different status
         sf::Texture normalTexture;
         sf::Texture hoveringTexture;
+        sf::Texture selectedTexture;        // the texture of being selected
 
     public:
         // constructor

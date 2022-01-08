@@ -20,6 +20,8 @@ class ConfirmButton : public Button{
 
         void resetTexture();
         void onClick() override;
+        // reset the confirmed status to false;
+        void reset();
         void onHovering() override;
 
         // accessor
