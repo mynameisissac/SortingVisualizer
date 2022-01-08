@@ -15,14 +15,14 @@ include/Sorting/SortingAlgorithm.h
 include/Array.h include/UI_common.h 
 src/Sorting/SelectionSort.cpp 
 include/Sorting/SelectionSort.h 
-src/SideBar.cpp include/SideBar.h 
-src/Button.cpp include/Button.h 
-src/PauseButton.cpp 
-include/PauseButton.h 
+src/SideBar.cpp include/SideBar.h
+        src/Button/Button.cpp include/Button/Button.h
+        src/Button/PauseButton.cpp
+        include/Button/PauseButton.h
 src/Sorting/BubbleSort.cpp 
 include/Sorting/BubbleSort.h 
 src/BackGroundUI.cpp 
-include/BackGroundUI.h src/Sorting/InsertionSort.cpp include/Sorting/InsertionSort.h src/Sorting/QuickSort.cpp include/Sorting/QuickSort.h src/Menu.cpp include/Menu.h src/SelectionButton.cpp include/SelectionButton.h)
+include/BackGroundUI.h src/Sorting/InsertionSort.cpp include/Sorting/InsertionSort.h src/Sorting/QuickSort.cpp include/Sorting/QuickSort.h src/Menu.cpp include/Menu.h src/Button/SelectionButton.cpp include/Button/SelectionButton.h src/Button/ConfirmButton.cpp include/Button/ConfirmButton.h)
 
 include_directories(include "C:/Program Files/SFML-2.5.1/include")
 

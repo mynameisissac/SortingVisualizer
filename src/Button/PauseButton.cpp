@@ -2,8 +2,7 @@
 // Created by kshou on 2021/12/29.
 //
 
-#include "PauseButton.h"
-#include <iostream>
+#include "Button/PauseButton.h"
 
 // definition of static data member
 bool PauseButton::freezeFlag = false;

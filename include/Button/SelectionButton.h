@@ -11,6 +11,10 @@ class SelectionButton : public Button{
     private:
         // the index of the choice this button represent
         int choiceIndex;
+        // indicate if this button is the currently selected one among the menu list
+        bool beingSelected = false;
+
+        // textures when different status
         sf::Texture normalTexture;
         sf::Texture hoveringTexture;
 

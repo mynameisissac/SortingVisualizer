@@ -8,7 +8,7 @@
 using namespace sf;
 
 Menu::Menu(Engine* engine)
-    : engine(engine), selectedItemIndex(0), selectionList{}
+    : engine(engine), selectedItemIndex(-1), selectionList{}, confirmButton(nullptr)
 {
     for (int i = 0; i < TOTAL; ++i)
         selectionList[i] = new SelectionButton(Vector2f(SELECTION_BUTTON_WIDTH, SELECTION_BUTTON_HEIGHT),
@@ -36,14 +36,31 @@ Menu::~Menu()
 
 void Menu::run()
 {
+    bool algorithmSelected = false;
+    bool arraySizeValid = true;         // since we have default array size
+
     // the main loop of the start menu process
-    while (true) {
+    while (!algorithmSelected || !arraySizeValid) {
         draw();
-        handleInput();
+        handleInput(algorithmSelected, arraySizeValid);
     }
+
+    // construct an Array<int> instance and copy it to engine->arrayToSort, and
+    // assign the selected sorting algorithm for engine
+    engine->arrayToSort = SizeOfArray;          // call implicit conversion constructor and overloaded operator=
+    if (selectedItemIndex == 0)
+        engine->sortProcess1 = new SelectionSort(engine->arrayToSort, engine);
+    else if (selectedItemIndex == 1)
+        engine->sortProcess1 = new BubbleSort(engine->arrayToSort, engine);
+    else if (selectedItemIndex == 2)
+        engine->sortProcess1 = new InsertionSort(engine->arrayToSort, engine);
+    else if (selectedItemIndex == 3)
+        engine->sortProcess1 = new QuickSort(engine->arrayToSort, engine);
+    else if (selectedItemIndex == 4)
+        engine->sortProcess1 = new BogoSort(engine->arrayToSort, engine);
 }
 
-void Menu::handleInput()
+void Menu::handleInput(bool& selected, bool& arraySizeValid)
 {
     Event event{};
 
@@ -69,6 +86,13 @@ void Menu::handleInput()
                 else
                     selectionButton->resetTexture();
             }
+
+        if (event.type == Event::MouseButtonPressed)
+            for (int i=0; i < TOTAL; ++i)
+                if (selectionList[i]->isHovering(engine->window)) {
+                    selectedItemIndex = i;
+                    selected = true;
+                }
     }
 }
 

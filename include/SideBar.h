@@ -4,7 +4,7 @@
 
 #ifndef SORTINGVISUALIZER_SIDEBAR_H
 #define SORTINGVISUALIZER_SIDEBAR_H
-#include "PauseButton.h"
+#include "Button/PauseButton.h"
 #include "UI_common.h"
 
 class SideBar {

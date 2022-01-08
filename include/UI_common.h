@@ -22,7 +22,7 @@ const int WINDOW_HEIGHT = 750;
 const float SELECTION_BUTTON_WIDTH = (float) WINDOW_WIDTH / 5.06f;
 const float SELECTION_BUTTON_HEIGHT = (float) WINDOW_HEIGHT / 9.18f;
 // position of the top-left corner of selection menu(i.e. first selection button)
-const float MENU_SELECTION_POSITION_X = (float) WINDOW_WIDTH * 2 / 5;
+const float MENU_SELECTION_POSITION_X = (float) WINDOW_WIDTH * 2 / 8;
 const float MENU_SELECTION_POSITION_Y = SELECTION_BUTTON_HEIGHT * 2.5f;
 
 // the dimension of the region to display the sorting process

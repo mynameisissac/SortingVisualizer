@@ -5,7 +5,7 @@
 #ifndef SORTINGVISUALIZER_MENU_H
 #define SORTINGVISUALIZER_MENU_H
 
-#include "SelectionButton.h"
+#include "Button/SelectionButton.h"
 
 // forward declaration of Engine
 class Engine;
@@ -17,12 +17,15 @@ class Menu {
         // total number of items for selection
         static const int TOTAL = 5;
         // store the currently selected item index
-        int selectedItemIndex;      // from 0 to TOTAL - 1
+        // from 0 to (TOTAL - 1), -1 means not yet selected
+        int selectedItemIndex;
 
         // an array of pointers to Button that each button represent a choice
         // the menu owns all the selection buttons
         SelectionButton* selectionList[TOTAL];
 
+        // confirm button
+        Button* confirmButton;
         // pointer of the engine the possessed this menu
         Engine* engine;
 
@@ -30,7 +33,7 @@ class Menu {
         explicit Menu(Engine* engine);
         ~Menu();
 
-        void handleInput();
+        void handleInput(bool& selected, bool& arraySizeValid);
         void run();
 
         void draw();

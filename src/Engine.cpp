@@ -23,7 +23,7 @@ Engine::Engine(int sizeOfArray)
     window.create(VideoMode(resolution.x, resolution.y), "Sorting Visualizer", Style::Close | Style::Titlebar);
     window.setFramerateLimit(60);
 
-    // start menu part (choosing the sorting algorithms and array size)
+    // start menu part (choosing the sorting algorithms and array size here)
     startMenu.run();
 
     // array to be sorted as an object
@@ -31,9 +31,6 @@ Engine::Engine(int sizeOfArray)
     /* initialize random seed: */
     srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
-
-    // create sorting algorithm instance
-    sortProcess1 = new BogoSort(arrayToSort, this);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");

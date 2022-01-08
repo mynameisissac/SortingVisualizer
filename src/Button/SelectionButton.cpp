@@ -2,7 +2,7 @@
 // Created by kshou on 2022/1/8.
 //
 
-#include "SelectionButton.h"
+#include "Button/SelectionButton.h"
 
 SelectionButton::SelectionButton(const sf::Vector2f& size, const sf::Vector2f& position, int choiceIndex)
     : Button(size, position), choiceIndex(choiceIndex)
