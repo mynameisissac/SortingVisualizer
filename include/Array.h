@@ -8,7 +8,6 @@
 #include <SFML/Graphics.hpp>
 #include "UI_common.h"
 #include <iostream>
-using namespace sf;
 
 // implementation of custom Array class type template
 template <typename T>
@@ -17,18 +16,19 @@ class Array {
         T* arr;                             // pointer to a dynamic array of type T
 
         // pointer to an array of rectangles for visualizing the array
-        RectangleShape* representation;
+        sf::RectangleShape* representation;
         int size;                           // size of the arrays
 
     public:
 
         Array(int size);                    // conversion constructor NOLINT(google-explicit-constructor)
         Array(const Array& that);           // copy constructor
+        Array& operator=(const Array& that);// overloading operator=
         ~Array();
 
         int getSize() const;
         T* getArrayPointer() const;
-        RectangleShape* getRecArrPointer() const;
+        sf::RectangleShape* getRecArrPointer() const;
         bool sorted() const;
         void print() const;
 
@@ -38,7 +38,7 @@ class Array {
 
         void initialization();
         bool swap(int index1, int index2);  // swap two elements in the data array by given indexes
-        void draw(RenderWindow& window);
+        void draw(sf::RenderWindow& window);
 };
 
 template <typename T>
@@ -73,7 +73,7 @@ T* Array<T>::getArrayPointer() const
 
 // accessor that return the pointer to the first element in the representation array
 template <typename T>
-RectangleShape* Array<T>::getRecArrPointer() const
+sf::RectangleShape* Array<T>::getRecArrPointer() const
 {
     return representation;
 }
@@ -134,7 +134,7 @@ void Array<T>::initialization()
         // arr[i] indicates the height of rectArr[i]
         arr[i] = (i + 1) * HEIGHT_SCALE;         // start from 1, prevent zero
 
-        representation[i].setSize(Vector2f(rectangle_width, (float)arr[i]));
+        representation[i].setSize(sf::Vector2f(rectangle_width, (float)arr[i]));
         representation[i].setFillColor(arrayColor);        // grey
         // set the origin of all rectangles to their left-bottom corner for drawing easier
         representation[i].setOrigin(0, representation[i].getSize().y);
@@ -164,12 +164,12 @@ bool Array<T>::swap(int index1, int index2)
 }
 
 template <typename T>
-void Array<T>::draw(RenderWindow& window)
+void Array<T>::draw(sf::RenderWindow& window)
 {
     // drawing the whole array by representing elements as rectangles
     for (int i=0; i < size; ++i) {
         // no change in width but only change in height
-        representation[i].setSize(Vector2f(representation[i].getSize().x, (float)arr[i]));
+        representation[i].setSize(sf::Vector2f(representation[i].getSize().x, (float)arr[i]));
         representation[i].setOrigin(0, representation[i].getSize().y);
         representation[i].setPosition(float(i) * representation[i].getSize().x, DISPLAY_HEIGHT);
         window.draw(representation[i]);
@@ -179,18 +179,29 @@ void Array<T>::draw(RenderWindow& window)
 
 template <typename T>
 Array<T>::Array(const Array& that)
+    : arr(nullptr), representation(nullptr)
 {
-    // release memory of current dynamic arrays first
-    delete [] arr;
-    delete [] representation;
+    *this = that;       // call the overloaded operator=
+}
 
-    size = that.size;
-    arr = new T[size];
-    representation = new sf::RectangleShape[size];
-    for (int i=0; i < size; ++i){
-        arr[i] = that.arr[i];
-        representation[i] = that.representation[i];
+template <typename T>
+Array<T>& Array<T>::operator=(const Array& that)
+{
+    // prevent self-copying
+    if(this != &that){
+        // release memory of current dynamic arrays first
+        delete [] arr;
+        delete [] representation;
+
+        size = that.size;
+        arr = new T[size];
+        representation = new sf::RectangleShape[size];
+        for (int i=0; i < size; ++i){
+            arr[i] = that.arr[i];
+            representation[i] = that.representation[i];
+        }
     }
+    return *this;
 }
 
 #endif //SORTINGVISUALIZER_ARRAY_H
