@@ -21,7 +21,7 @@ class Menu {
 
         // an array of pointers to Button that each button represent a choice
         // the menu owns all the selection buttons
-        Button* selectionList[TOTAL];
+        SelectionButton* selectionList[TOTAL];
 
         // pointer of the engine the possessed this menu
         Engine* engine;

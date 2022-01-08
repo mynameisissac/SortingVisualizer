@@ -61,6 +61,14 @@ void Menu::handleInput()
             std::cout << "Closing window" << std::endl;
             engine->window.close();
         }
+
+        if (event.type == Event::MouseMoved)
+            for (auto& selectionButton: selectionList) {
+                if (selectionButton->isHovering(engine->window))
+                    selectionButton->onHovering();
+                else
+                    selectionButton->resetTexture();
+            }
     }
 }
 

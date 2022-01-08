@@ -25,8 +25,9 @@ class Button {
 
         void draw(sf::RenderWindow& window);
 
-        // pure virtual function of handling onClick event
+        // pure virtual functions of handling onClick event and onHovering
         virtual void onClick() = 0;
+        virtual void onHovering() = 0;
 
         // mutator
         void setTexture(sf::Texture* texture);

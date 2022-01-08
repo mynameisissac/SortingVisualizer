@@ -35,3 +35,8 @@ bool PauseButton::isPaused()
 {
     return freezeFlag;
 }
+
+void PauseButton::onHovering()
+{
+    // do nothing
+}

@@ -18,8 +18,10 @@ class SelectionButton : public Button{
         // constructor
         SelectionButton(const sf::Vector2f& size, const sf::Vector2f& position, int choiceIndex);
 
-        void onClick() override;
+        void resetTexture();
 
+        void onClick() override;
+        void onHovering() override;
 };
 
 

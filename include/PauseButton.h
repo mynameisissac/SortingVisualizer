@@ -20,6 +20,7 @@ class PauseButton : public Button{
         static bool isPaused();
 
         void onClick() override;
+        void onHovering() override;
 };
 
 
