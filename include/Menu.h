@@ -4,25 +4,36 @@
 
 #ifndef SORTINGVISUALIZER_MENU_H
 #define SORTINGVISUALIZER_MENU_H
-#include "Button.h"
 
+#include "SelectionButton.h"
+
+// forward declaration of Engine
+class Engine;
+
+// note that Menu is a friend class of Engine
 class Menu {
     private:
         // Selecting sorting algorithm part
         // total number of items for selection
         static const int TOTAL = 5;
         // store the currently selected item index
-        int selectedItemIndex;
+        int selectedItemIndex;      // from 0 to TOTAL - 1
 
         // an array of pointers to Button that each button represent a choice
         // the menu owns all the selection buttons
         Button* selectionList[TOTAL];
 
+        // pointer of the engine the possessed this menu
+        Engine* engine;
+
     public:
-        Menu();
+        explicit Menu(Engine* engine);
         ~Menu();
 
-        void draw(sf::RenderWindow& window);
+        void handleInput();
+        void run();
+
+        void draw();
 
 };
 

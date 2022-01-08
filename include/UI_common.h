@@ -6,7 +6,8 @@
 #define SORTINGVISUALIZER_UI_COMMON_H
 #include <SFML/Graphics.hpp>
 
-static int SizeOfArray = 1000;            // <-- change this number to test with different size of arrays
+// default size of array to be sorted
+static int SizeOfArray = 1000;            // <-- change this number to test with different sizes of array
 
 // ui-related common constants and static variables
 // background color
@@ -15,6 +16,14 @@ static sf::Color BACKGROUND_COLOR(sf::Color::White);
 // the dimension of the window
 const int WINDOW_WIDTH = 1650;
 const int WINDOW_HEIGHT = 750;
+
+// The information of starting menu part
+// dimension of each selection button
+const float SELECTION_BUTTON_WIDTH = (float) WINDOW_WIDTH / 5.06f;
+const float SELECTION_BUTTON_HEIGHT = (float) WINDOW_HEIGHT / 9.18f;
+// position of the top-left corner of selection menu(i.e. first selection button)
+const float MENU_SELECTION_POSITION_X = (float) WINDOW_WIDTH * 2 / 5;
+const float MENU_SELECTION_POSITION_Y = SELECTION_BUTTON_HEIGHT * 2.5f;
 
 // the dimension of the region to display the sorting process
 const float DISPLAY_WIDTH = 1500.0f;

@@ -22,7 +22,8 @@ class Array {
 
     public:
 
-        explicit Array(int size);           // conversion constructor
+        Array(int size);                    // conversion constructor NOLINT(google-explicit-constructor)
+        Array(const Array& that);           // copy constructor
         ~Array();
 
         int getSize() const;
@@ -174,6 +175,22 @@ void Array<T>::draw(RenderWindow& window)
         window.draw(representation[i]);
     }
 
+}
+
+template <typename T>
+Array<T>::Array(const Array& that)
+{
+    // release memory of current dynamic arrays first
+    delete [] arr;
+    delete [] representation;
+
+    size = that.size;
+    arr = new T[size];
+    representation = new sf::RectangleShape[size];
+    for (int i=0; i < size; ++i){
+        arr[i] = that.arr[i];
+        representation[i] = that.representation[i];
+    }
 }
 
 #endif //SORTINGVISUALIZER_ARRAY_H

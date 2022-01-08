@@ -12,16 +12,19 @@ using namespace sf;
 
 // create a sorting visualization process by passing a size of array to sort
 Engine::Engine(int sizeOfArray)
-    : arrayToSort(sizeOfArray), clock(), stopWatchOffSet(0),
+    : arrayToSort(sizeOfArray), clock(), stopWatchOffSet(0), startMenu(this),
       sideBar(Vector2f(DISPLAY_WIDTH, 0.0f), Vector2f(SIDEBAR_WIDTH, SIDEBAR_HEIGHT), SIDEBAR_COLOR,
             new PauseButton(Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
                 Vector2f((SIDEBAR_WIDTH - BUTTON_WIDTH) / 2 + DISPLAY_WIDTH, BUTTON_HEIGHT )))
         , backgroundUI(window, &sideBar)
 {
-    // window part i.e. UI
+    // window part UI
     resolution = Vector2i(WINDOW_WIDTH, WINDOW_HEIGHT);
     window.create(VideoMode(resolution.x, resolution.y), "Sorting Visualizer", Style::Close | Style::Titlebar);
     window.setFramerateLimit(60);
+
+    // start menu part (choosing the sorting algorithms and array size)
+    startMenu.run();
 
     // array to be sorted as an object
     arrayToSort.initialization();
@@ -30,7 +33,7 @@ Engine::Engine(int sizeOfArray)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
     // create sorting algorithm instance
-    sortProcess1 = new SelectionSort(arrayToSort, this);          // choose a sorting algorithm here
+    sortProcess1 = new BogoSort(arrayToSort, this);          // choose a sorting algorithm here
 
     arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");

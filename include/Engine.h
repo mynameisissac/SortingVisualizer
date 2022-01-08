@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "BackGroundUI.h"
 #include "Array.h"
+#include "Menu.h"
 #include "SideBar.h"
 #include "Sorting/BogoSort.h"
 #include "Sorting/SelectionSort.h"
@@ -20,6 +21,9 @@ class Engine {
         // window
         sf::RenderWindow window;
         sf::Vector2i resolution;
+
+        // starting menu
+        Menu startMenu;
 
         // sidebar (const)
         const SideBar sideBar;
@@ -43,6 +47,9 @@ class Engine {
         void handleInput();
         // handleInput when paused
         void pausing();
+
+        // declaration of friend class
+        friend class Menu;
 
     public:
         explicit Engine(int sizeOfArray);      // conversion constructor
