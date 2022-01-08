@@ -8,7 +8,22 @@
 #include "Button.h"
 
 class ConfirmButton : public Button{
+    private:
+        // indicate the state of this button
+        bool confirmed = false;
+        // texture
+        sf::Texture normalTexture;
+        sf::Texture hoveringTexture;
 
+    public:
+        ConfirmButton(const sf::Vector2f& size, const sf::Vector2f& position);
+
+        void resetTexture();
+        void onClick() override;
+        void onHovering() override;
+
+        // accessor
+        bool isConfirmed() const;
 };
 
 
