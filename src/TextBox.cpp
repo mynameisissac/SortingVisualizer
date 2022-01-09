@@ -3,11 +3,9 @@
 //
 
 #include "TextBox.h"
-#include <iostream>
 using namespace sf;
 
 TextBox::TextBox() = default;
-
 
 TextBox::TextBox(bool isSelected)
     : isSelected(isSelected)
@@ -26,9 +24,9 @@ TextBox::TextBox(bool isSelected)
     inputBox.setPosition(Vector2f(TEXTBOX_INPUT_POSITION_X, TEXTBOX_INPUT_POSITION_Y));
     inputBox.setFillColor(TEXTBOX_TEXT_COLOR);
     if (isSelected)
-        inputBox.setString('_');
+        inputBox.setString(text + '_');
     else
-        inputBox.setString("");     // set to nothing by default when not selected
+        inputBox.setString(text);     // set to nothing by default when not selected
 
     boxOutline.setPosition(Vector2f(TEXTBOX_INPUT_POSITION_X - TEXTBOX_LABEL_FONTSIZE, TEXTBOX_INPUT_POSITION_Y - 5));
     boxOutline.setSize(Vector2f(TEXTBOX_INPUT_WIDTH, TEXTBOX_INPUT_HEIGHT));
@@ -39,12 +37,10 @@ TextBox::TextBox(bool isSelected)
 
 void TextBox::input(unsigned int charTyped)
 {
-    std::cout << "the char typed is " << charTyped << std::endl;
     // read the key inputted into the text
     if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && text.length() < limit && validInput(charTyped)){
         text += static_cast<char>(charTyped);         // put the char typed into the text
     }
-
     // when the input key is DELETE_KEY
     else if (charTyped == DELETE_KEY){
         if (text.length() > 0)  // prevent deleting char from empty string
@@ -52,15 +48,14 @@ void TextBox::input(unsigned int charTyped)
             text.pop_back();
     }
 
-    // when the user press enter
-    else if (charTyped == ENTER_KEY && text.length() > 0){
-        if (std::stoi(text) > 0)
-            SizeOfArray = std::stoi(text);
-    }
-
-    std::cout << "current textBox is " << text << std::endl;
     // update the inputBox
     inputBox.setString(text + '_');
+
+    // update the SizeOfArray real time
+    if (text.length() > 0)
+        SizeOfArray = std::stoi(text);
+    else
+        SizeOfArray = 0;
 }
 
 bool TextBox::validInput(unsigned int charTyped)

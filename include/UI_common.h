@@ -7,7 +7,7 @@
 #include <SFML/Graphics.hpp>
 
 // default size of array to be sorted
-static int SizeOfArray = 1000;            // <-- change this number to test with different sizes of array
+extern int SizeOfArray;           // mark extern for every cpp file that include this header to access(including modifying)
 
 // ui-related common constants and static variables
 // background color
@@ -67,7 +67,7 @@ const sf::Vector2f TEXTLABEL2_POSITION(DISPLAY_WIDTH + 5.0f + 10.0f, DISPLAY_HEI
 const sf::Color textColor(33, 33, 33);
 
 // height scale for rectangles bars (representation of the array)
-static float HEIGHT_SCALE = float(WINDOW_HEIGHT) / SizeOfArray;
+extern float HEIGHT_SCALE;
 // color of rectangles bars
 static sf::Color arrayColor(66,66,66);         // grey
 static sf::Color arrayHighlightColor(255, 193, 7);       // yellow

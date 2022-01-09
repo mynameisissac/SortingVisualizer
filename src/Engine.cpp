@@ -9,6 +9,8 @@
 #include <iomanip>
 using namespace sf;
 
+// declaration of a global variable HEIGHT_SCALE
+float HEIGHT_SCALE;
 
 // create a sorting visualization process by passing a size of array to sort
 Engine::Engine(int sizeOfArray)
@@ -25,6 +27,9 @@ Engine::Engine(int sizeOfArray)
 
     // start menu part (choosing the sorting algorithms and array size here)
     startMenu.run();
+
+    // initialization of global variable HEIGHT_SCALE, must be done before Array<int>.initialization();
+    HEIGHT_SCALE = (float)WINDOW_HEIGHT / SizeOfArray;
 
     // array to be sorted as an object
     arrayToSort.initialization();

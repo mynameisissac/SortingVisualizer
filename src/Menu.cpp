@@ -7,6 +7,7 @@
 #include <iostream>
 using namespace sf;
 
+
 Menu::Menu(Engine* engine)
     : engine(engine), selectedItemIndex(-1), selectionList{}, confirmButton(nullptr), textBox(nullptr)
 {
@@ -62,6 +63,7 @@ void Menu::run()
 
     // construct an Array<int> instance and copy it to engine->arrayToSort, and
     // assign the selected sorting algorithm for engine
+    std::cout << "making array size = " << SizeOfArray << std::endl;
     engine->arrayToSort = SizeOfArray;          // call implicit conversion constructor and overloaded operator=
     if (selectedItemIndex == 0)
         engine->sortProcess1 = new SelectionSort(engine->arrayToSort, engine);
@@ -128,8 +130,15 @@ void Menu::handleInput(bool& selected, bool& arraySizeValid)
         // keyboard input events(for textBox input)
         if (event.type == Event::TextEntered){
             // check if the textBox is currently selected
-            if (textBox->getSelected())
+            if (textBox->getSelected()) {
                 textBox->input(event.text.unicode);
+
+                // validate the SizeOfArray after each modification
+                if (SizeOfArray <= 0)
+                    arraySizeValid = false;
+                else
+                    arraySizeValid = true;
+            }
         }
 
     }
