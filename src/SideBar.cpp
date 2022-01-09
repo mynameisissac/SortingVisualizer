@@ -66,7 +66,7 @@ Vector2f SideBar::getDimension() const
     return dimension;
 }
 
-// return the rectangleShape that display the sidebar
+// return the rectangleShape that inputBox the sidebar
 RectangleShape SideBar::getDisplay() const
 {
     return display;

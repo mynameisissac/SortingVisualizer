@@ -13,7 +13,7 @@ PauseButton::PauseButton(const sf::Vector2f& size, const sf::Vector2f& position)
     pauseTexture.loadFromFile("../assets/pauseTexture_square2.jpg");
     resumeTexture.loadFromFile("../assets/playTexture_square2.png");
 
-    setTexture(&pauseTexture);      // initial display of pauseButton is pauseTexture
+    setTexture(&pauseTexture);      // initial inputBox of pauseButton is pauseTexture
 }
 
 

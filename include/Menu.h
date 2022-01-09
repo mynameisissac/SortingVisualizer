@@ -7,6 +7,7 @@
 
 #include "Button/SelectionButton.h"
 #include "Button/ConfirmButton.h"
+#include "TextBox.h"
 
 // forward declaration of Engine
 class Engine;
@@ -24,6 +25,9 @@ class Menu {
         // an array of pointers to Button that each button represent a choice
         // the menu owns all the selection buttons
         SelectionButton* selectionList[TOTAL];
+
+        // textBox for inputting array size by user
+        TextBox* textBox;
 
         // confirm button
         ConfirmButton* confirmButton;

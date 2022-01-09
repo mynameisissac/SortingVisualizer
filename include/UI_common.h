@@ -31,8 +31,21 @@ const float CONFIRM_BUTTON_HEIGHT = (float) WINDOW_HEIGHT / 7.2f;
 const float MENU_CONFIRM_POSITION_X = (float) WINDOW_WIDTH * 5 / 8;
 const float MENU_CONFIRM_POSITION_Y = MENU_SELECTION_POSITION_Y + 5 * SELECTION_BUTTON_HEIGHT
                                         - CONFIRM_BUTTON_HEIGHT;      // to make it align with last selection button
+// position of input box label
+// color of text
+const sf::Color TEXTBOX_TEXT_COLOR(97,97,97);
+const float TEXTBOX_LABEL_POSITION_X = (float) WINDOW_WIDTH * 5 / 9;
+const float TEXTBOX_LABEL_POSITION_Y = MENU_CONFIRM_POSITION_Y - 2 * SELECTION_BUTTON_HEIGHT;
+// input box label font size
+const int TEXTBOX_LABEL_FONTSIZE = 24;
+// position of the input box
+const float TEXTBOX_INPUT_POSITION_X = TEXTBOX_LABEL_POSITION_X + 12 * ((float)(1+TEXTBOX_LABEL_FONTSIZE) * 16 / 12 / 2);
+const float TEXTBOX_INPUT_POSITION_Y = TEXTBOX_LABEL_POSITION_Y;
+// size of the outline of input box (a rectangle)
+const float TEXTBOX_INPUT_WIDTH = SELECTION_BUTTON_WIDTH * 3 / 4;       // 3/4 selection button wide
+const float TEXTBOX_INPUT_HEIGHT = SELECTION_BUTTON_HEIGHT / 2;         // 1/2 height as selection button
 
-// the dimension of the region to display the sorting process
+// the dimension of the region to inputBox the sorting process
 const float DISPLAY_WIDTH = 1500.0f;
 const float DISPLAY_HEIGHT = (float)WINDOW_HEIGHT;
 
@@ -51,7 +64,7 @@ static sf::Color BUTTON_COLOR(189,189,189);
 // position of the text label (stopWatch information)
 const sf::Vector2f TEXTLABEL1_POSITION(DISPLAY_WIDTH + 5.0f, DISPLAY_HEIGHT * 3/4);
 const sf::Vector2f TEXTLABEL2_POSITION(DISPLAY_WIDTH + 5.0f + 10.0f, DISPLAY_HEIGHT * 3/4 + 20.0f);
-static sf::Color textColor(33, 33, 33);
+const sf::Color textColor(33, 33, 33);
 
 // height scale for rectangles bars (representation of the array)
 static float HEIGHT_SCALE = float(WINDOW_HEIGHT) / SizeOfArray;

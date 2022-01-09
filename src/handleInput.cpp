@@ -43,7 +43,7 @@ void Engine::handleInput()
 
                 sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
 
-                // draw again to display the changed texture
+                // draw again to inputBox the changed texture
                 arrayToSort.draw(window);
                 backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
             }
@@ -67,7 +67,7 @@ void Engine::handleInput()
 
                     sideBar.getPauseButton().onClick();           // reverse the freezeFlag and change the texture of button
 
-                    // draw again to display the changed texture
+                    // draw again to inputBox the changed texture
                     arrayToSort.draw(window);
                     backgroundUI.draw(setPrecisionToString((clock.getElapsedTime().asSeconds() + stopWatchOffSet), 2));
                 }

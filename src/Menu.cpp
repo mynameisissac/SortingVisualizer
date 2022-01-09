@@ -8,7 +8,7 @@
 using namespace sf;
 
 Menu::Menu(Engine* engine)
-    : engine(engine), selectedItemIndex(-1), selectionList{}, confirmButton(nullptr)
+    : engine(engine), selectedItemIndex(-1), selectionList{}, confirmButton(nullptr), textBox(nullptr)
 {
     for (int i = 0; i < TOTAL; ++i)
         // instances of selectionButton
@@ -16,6 +16,9 @@ Menu::Menu(Engine* engine)
                                                Vector2f(MENU_SELECTION_POSITION_X, MENU_SELECTION_POSITION_Y +
                                                                                    (float) i * SELECTION_BUTTON_HEIGHT),
                                                i);
+
+    // instance of textBox
+    textBox = new TextBox(true);
     // instance of confirmButton
     confirmButton = new ConfirmButton(Vector2f(CONFIRM_BUTTON_WIDTH, CONFIRM_BUTTON_HEIGHT),
                                       Vector2f(MENU_CONFIRM_POSITION_X, MENU_CONFIRM_POSITION_Y));
@@ -29,6 +32,8 @@ void Menu::draw()
 
     // draw the confirmButton
     confirmButton->draw(engine->window);
+    // draw the textBox
+    textBox->draw(engine->window);
     engine->window.display();
 
     engine->window.clear(BACKGROUND_COLOR);
@@ -40,6 +45,7 @@ Menu::~Menu()
     for(auto & selectionButton : selectionList)
         delete selectionButton;
 
+    delete textBox;
     delete confirmButton;
 }
 
@@ -107,9 +113,18 @@ void Menu::handleInput(bool& selected, bool& arraySizeValid)
                     confirmButton->reset();
                 }
 
+            // select the textBox
+            if (!textBox->getSelected() && textBox->isHovering(engine->window))
+                textBox->setSelected(true);
+
             // onClick event of confirmButton
             if (confirmButton->isHovering(engine->window))
                 confirmButton->onClick();
+        }
+
+        // keyboard input events(for textBox input)
+        if (event.type == Event::KeyPressed){
+            // check if the
         }
 
     }

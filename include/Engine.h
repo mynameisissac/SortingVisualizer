@@ -55,7 +55,7 @@ class Engine {
         explicit Engine(int sizeOfArray);      // conversion constructor
         ~Engine();
 
-        // basic flow of handleInput, draw, display, clear, check pausing
+        // basic flow of handleInput, draw, inputBox, clear, check pausing
         void uiProcess();
 
         bool windowIsClosed() const;
