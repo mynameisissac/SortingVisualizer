@@ -10,7 +10,9 @@
 
 #define DELETE_KEY 8
 #define ENTER_KEY 13
-
+// the UTF-32 of digit 0 and 9
+#define UNICODE_0 48
+#define UNICODE_9 57
 
 class TextBox {
     private:
@@ -24,9 +26,9 @@ class TextBox {
         // a rectangle to outline the inputBox on screen
         sf::RectangleShape boxOutline;
 
-        std::string text;
+        std::string text = "1000";
         // limit of length of text input
-        int limit = 255;
+        int limit = 7;          // 7 digits number size of array is already very large
         // user can only input to the textBox when it is selected
         bool isSelected = false;
 
@@ -41,8 +43,10 @@ class TextBox {
         // mutator
         void setSelected(bool selected);
         // check if the input key is a valid char to enter the textbox
-        static bool validInput(const int& charTyped);
-        void input(int charTyped);
+        static bool validInput(unsigned int charTyped);
+        // read the user inputted key stoke into textBox and display it
+        void input(unsigned int charTyped);
+
         void draw(sf::RenderWindow& window);
 };
 

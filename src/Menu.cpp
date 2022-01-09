@@ -116,6 +116,9 @@ void Menu::handleInput(bool& selected, bool& arraySizeValid)
             // select the textBox
             if (!textBox->getSelected() && textBox->isHovering(engine->window))
                 textBox->setSelected(true);
+            // unselect the textBox
+            else if (!textBox->isHovering(engine->window))
+                textBox->setSelected(false);
 
             // onClick event of confirmButton
             if (confirmButton->isHovering(engine->window))
@@ -123,8 +126,10 @@ void Menu::handleInput(bool& selected, bool& arraySizeValid)
         }
 
         // keyboard input events(for textBox input)
-        if (event.type == Event::KeyPressed){
-            // check if the
+        if (event.type == Event::TextEntered){
+            // check if the textBox is currently selected
+            if (textBox->getSelected())
+                textBox->input(event.text.unicode);
         }
 
     }

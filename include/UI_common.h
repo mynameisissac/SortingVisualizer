@@ -40,7 +40,7 @@ const float TEXTBOX_LABEL_POSITION_Y = MENU_CONFIRM_POSITION_Y - 2 * SELECTION_B
 const int TEXTBOX_LABEL_FONTSIZE = 24;
 // position of the input box
 const float TEXTBOX_INPUT_POSITION_X = TEXTBOX_LABEL_POSITION_X + 12 * ((float)(1+TEXTBOX_LABEL_FONTSIZE) * 16 / 12 / 2);
-const float TEXTBOX_INPUT_POSITION_Y = TEXTBOX_LABEL_POSITION_Y;
+const float TEXTBOX_INPUT_POSITION_Y = TEXTBOX_LABEL_POSITION_Y + 2;
 // size of the outline of input box (a rectangle)
 const float TEXTBOX_INPUT_WIDTH = SELECTION_BUTTON_WIDTH * 3 / 4;       // 3/4 selection button wide
 const float TEXTBOX_INPUT_HEIGHT = SELECTION_BUTTON_HEIGHT / 2;         // 1/2 height as selection button

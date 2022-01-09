@@ -3,6 +3,7 @@
 //
 
 #include "TextBox.h"
+#include <iostream>
 using namespace sf;
 
 TextBox::TextBox() = default;
@@ -29,18 +30,19 @@ TextBox::TextBox(bool isSelected)
     else
         inputBox.setString("");     // set to nothing by default when not selected
 
-    boxOutline.setPosition(Vector2f(TEXTBOX_INPUT_POSITION_X - TEXTBOX_LABEL_FONTSIZE, TEXTBOX_INPUT_POSITION_Y));
+    boxOutline.setPosition(Vector2f(TEXTBOX_INPUT_POSITION_X - TEXTBOX_LABEL_FONTSIZE, TEXTBOX_INPUT_POSITION_Y - 5));
     boxOutline.setSize(Vector2f(TEXTBOX_INPUT_WIDTH, TEXTBOX_INPUT_HEIGHT));
     boxOutline.setFillColor(BACKGROUND_COLOR);
     boxOutline.setOutlineThickness(2);
     boxOutline.setOutlineColor(TEXTBOX_TEXT_COLOR);
 }
 
-void TextBox::input(int charTyped)
+void TextBox::input(unsigned int charTyped)
 {
+    std::cout << "the char typed is " << charTyped << std::endl;
     // read the key inputted into the text
-    if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && validInput(charTyped)){
-        text += static_cast<char>(charTyped);           // put the char typed into the text
+    if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && text.length() < limit && validInput(charTyped)){
+        text += static_cast<char>(charTyped);         // put the char typed into the text
     }
 
     // when the input key is DELETE_KEY
@@ -50,14 +52,21 @@ void TextBox::input(int charTyped)
             text.pop_back();
     }
 
+    // when the user press enter
+    else if (charTyped == ENTER_KEY && text.length() > 0){
+        if (std::stoi(text) > 0)
+            SizeOfArray = std::stoi(text);
+    }
+
+    std::cout << "current textBox is " << text << std::endl;
     // update the inputBox
     inputBox.setString(text + '_');
 }
 
-bool TextBox::validInput(const int& charTyped)
+bool TextBox::validInput(unsigned int charTyped)
 {
     // if the char going to input is not a digit(i.e. not in range 0 to 9)
-    if (charTyped < '0' || charTyped > '9')
+    if (charTyped < UNICODE_0 || charTyped > UNICODE_9)
         return false;
 
     return true;
@@ -76,6 +85,9 @@ void TextBox::setSelected(bool selected)
     // do not show the '_' at the end when the textBox is not selected
     if (!isSelected && selected)
         inputBox.setString(text + '_');
+    else if (isSelected && !selected)
+        inputBox.setString(text);
+
     isSelected = selected;
 }
 
