@@ -53,13 +53,13 @@ const float DISPLAY_HEIGHT = (float)WINDOW_HEIGHT;
 const float SIDEBAR_WIDTH = float(WINDOW_WIDTH) - DISPLAY_WIDTH;
 const float SIDEBAR_HEIGHT = float(WINDOW_HEIGHT);
 // color of sidebar
-static sf::Color SIDEBAR_COLOR(224,224,224);        // light grey
+const sf::Color SIDEBAR_COLOR(224,224,224);        // light grey
 
 //dimension of buttons
 const float BUTTON_WIDTH = int(SIDEBAR_WIDTH * 3/5);
 const float BUTTON_HEIGHT = BUTTON_WIDTH;               // make it a square button
 // color of buttons
-static sf::Color BUTTON_COLOR(189,189,189);
+const sf::Color BUTTON_COLOR(189,189,189);
 
 // position of the text label (stopWatch information)
 const sf::Vector2f TEXTLABEL1_POSITION(DISPLAY_WIDTH + 5.0f, DISPLAY_HEIGHT * 3/4);
@@ -67,12 +67,13 @@ const sf::Vector2f TEXTLABEL2_POSITION(DISPLAY_WIDTH + 5.0f + 10.0f, DISPLAY_HEI
 const sf::Color textColor(33, 33, 33);
 
 // height scale for rectangles bars (representation of the array)
-extern float HEIGHT_SCALE;
+extern float HEIGHT_SCALE;          // extern because it is going to be shared by files
 // color of rectangles bars
-static sf::Color arrayColor(66,66,66);         // grey
-static sf::Color arrayHighlightColor(255, 193, 7);       // yellow
+const sf::Color arrayColor(66,66,66);         // grey
+const sf::Color arrayHighlightColor(255, 193, 7);       // yellow
 
 // control the small suspend time between each iteration/comparison
+// NOT recommend modifying, although it works
 const int DELAY_TIME = 0;       // unit: milliseconds
 
 #endif //SORTINGVISUALIZER_UI_COMMON_H
