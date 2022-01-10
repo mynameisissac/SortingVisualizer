@@ -28,7 +28,7 @@ class TextBox {
 
         std::string text = "1000";
         // limit of length of text input
-        int limit = 7;          // 7 digits number size of array is already very large
+        int limit = 5;          // 6 digits number size of array is already very large
         // user can only input to the textBox when it is selected
         bool isSelected = false;
 

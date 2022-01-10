@@ -37,7 +37,6 @@ Engine::Engine(int sizeOfArray)
     srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
     BogoSort::shuffleArray(arrayToSort.getArrayPointer(), arrayToSort.getSize());       // randomize the array
 
-    arrayToSort.print();            // print the shuffled arrayToSort
     backgroundUI.draw("0");
 }
 
@@ -52,6 +51,7 @@ std::string setPrecisionToString(float floatNum, int n)
 // the main game loop end until the window is closed
 void Engine::run()
 {
+    clock.restart();        // restart the clock before sorting process
     // keep handling input and drawing while the Engine is running
     while (window.isOpen()) {
 

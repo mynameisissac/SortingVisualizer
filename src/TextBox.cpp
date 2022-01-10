@@ -14,6 +14,7 @@ TextBox::TextBox(bool isSelected)
     if (!font.loadFromFile("../assets/JetBrainsMono-Bold.ttf"))
         throw std::runtime_error("Could not load font!");
     label.setFont(font);
+    // set a lot of properties of sf::Text
     label.setCharacterSize(TEXTBOX_LABEL_FONTSIZE);
     label.setString("Array size = ");
     label.setPosition(Vector2f(TEXTBOX_LABEL_POSITION_X, TEXTBOX_LABEL_POSITION_Y));
